@@ -1,0 +1,22 @@
+{
+  "devDependencies": {
+    "css-tree": "^3.2.1",
+    "heic-convert": "^2.1.0",
+    "jsdom": "^30.1.3"
+  },
+  "private": true,
+  "scripts": {
+    "optimize:photos": "powershell -NoProfile -ExecutionPolicy Bypass -File optimize-photos.ps1 && node update-about.cjs && node update-gallery.cjs",
+    "test": "node test-site.cjs",
+    "test:navigation": "node test-navigation.cjs && node test-navigation-source.cjs",
+    "test:about": "node test-about.cjs",
+    "test:faq": "node test-faq.cjs",
+    "test:events": "node test-events.cjs",
+    "test:content": "node test-content.cjs",
+    "test:gallery": "node test-gallery.cjs",
+    "test:join": "node test-join.cjs",
+    "test:platform": "node test-platform.cjs",
+    "test:external": "node test-resources.cjs",
+    "test:syntax": "node --check test-site.cjs && node --check static-site/assets/site-fixes.js"
+  }
+}

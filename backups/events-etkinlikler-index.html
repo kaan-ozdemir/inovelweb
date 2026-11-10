@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İnovel Etkinlik Platformu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(26, 41, 66, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            background: rgba(26, 41, 66, 0.6);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .animate-in {
+            animation: animateIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes animateIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+<link id="static-site-fixes" rel="stylesheet" href="../assets/site-fixes.css">
+<link rel="stylesheet" href="../assets/modern-site.css"><script src="../assets/modern-site.js" defer></script>
+<link rel="stylesheet" href="../assets/editorial-theme.css"><link rel="stylesheet" href="../assets/editorial-layout.css">
+</head>
+
+<body
+    class="modern-inner event-platform bg-[#0B1726] text-white h-screen overflow-hidden flex flex-col relative selection:bg-blue-500 selection:text-white" >
+
+    <div class="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden bg-[#0B1726]">
+        <div
+            class="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-blue-600/20 rounded-full mix-blend-screen filter blur-[120px] opacity-30 animate-pulse">
+        </div>
+        <div
+            class="absolute bottom-[-10%] right-[-10%] w-[800px] h-[800px] bg-purple-600/20 rounded-full mix-blend-screen filter blur-[120px] opacity-30 animate-pulse delay-1000">
+        </div>
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 rounded-full mix-blend-screen filter blur-[100px] opacity-20">
+        </div>
+    </div>
+
+    <header class="modern-header"><a class="modern-skip" href="#main-content">İçeriğe geç</a><nav class="navbar modern-nav" aria-label="Ana menü"><a class="modern-brand" href="../index.html" aria-label="İnovel ana sayfa"><img src="../wp-content/uploads/2023/11/4619ae774d4b5a017f280d5f2b16d18f_272x272_fit.png" width="52" height="52" alt="İnovel topluluk logosu"><span><strong>İNOVEL<span class="brand-dot">.</span></strong><small>İnovasyon ve Liderlik Topluluğu</small></span></a><button class="modern-menu-toggle" aria-expanded="false" aria-controls="modern-menu" type="button"><span>Menü</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.5"/></svg></button><div class="modern-menu" id="modern-menu"><a href="../index.html" >Ana sayfa</a><details class="modern-dropdown"><summary>Topluluk <span>⌄</span></summary><div><a href="../sayfalar/about/index.html">Hakkımızda</a><a href="../sayfalar/departmanlarimiz/index.html">Departmanlarımız</a><a href="../sayfalar/sss/index.html">Sıkça sorulan sorular</a></div></details><details class="modern-dropdown"><summary>Etkinlikler <span>⌄</span></summary><div><a href="../portfolios/inovel-etkinlik/index.html">İnovel etkinlikleri</a><a href="../portfolios/gbs-etkinlik/index.html">Girişimcilik ve Başarı</a><a href="../portfolios/kasis-etkinlikler/index.html">KASİS</a></div></details><details class="modern-dropdown"><summary>İçerikler <span>⌄</span></summary><div><a href="../dergi/index.html">Dergi</a><a href="../podcasts/index.html">Podcast</a><a href="../blogs/index.html">Blog</a></div></details><a href="../galeri/index.html">Galeri</a><a class="modern-contact" href="../iletisim/index.html">Bize katıl <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" stroke="currentColor" stroke-width="1.7"/></svg></a></div></nav></header>
+
+    <main id="main-content" class="relative z-10 flex-1 flex flex-col items-center justify-center px-4 pb-20">
+
+        <div class="text-center mb-12 animate-in">
+            <h2 class="text-blue-400 font-bold tracking-[0.2em] text-xs uppercase mb-3">DPÜ İnovasyon ve Liderlik
+                Topluluğu</h2>
+            <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight drop-shadow-2xl">
+                Etkinlik Seçimi
+            </h1>
+            <p class="text-slate-400 mt-4 max-w-lg mx-auto text-sm leading-relaxed">
+                Kayıt ve oyunlar şu anda kullanılamıyor. Yeni etkinlikler için duyurularımızı takip edebilirsiniz.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full px-4 animate-in"
+            style="animation-delay: 0.2s;">
+
+            <a role="link" aria-disabled="true" title="Şu anda kullanılamıyor"
+                class="glass-card group relative rounded-3xl p-8 flex flex-col items-center text-center overflow-hidden">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+
+                <div
+                    class="w-20 h-20 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-500/20 transition-all duration-300 relative z-10 shadow-[0_0_30px_rgba(59,130,246,0.2)]">
+                    <i class="fa-solid fa-ticket text-3xl text-blue-400"></i>
+                </div>
+
+                <h3
+                    class="text-2xl font-bold text-white mb-2 relative z-10 group-hover:text-blue-200 transition-colors">
+                    Çekiliş Kayıt</h3>
+                <p class="text-sm text-slate-400 mb-6 relative z-10 leading-relaxed">
+                    Etkinlik çekilişine katılmak için kayıt formunu doldurun ve şansınızı deneyin.
+                </p>
+
+                <div
+                    class="mt-auto relative z-10 flex items-center gap-2 text-xs font-bold text-blue-400 group-hover:text-blue-300 tracking-wider uppercase">
+                    Şu anda kullanılamıyor <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </a>
+
+            <a role="link" aria-disabled="true" title="Şu anda kullanılamıyor"
+                class="glass-card group relative rounded-3xl p-8 flex flex-col items-center text-center overflow-hidden">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+
+                <div
+                    class="w-20 h-20 rounded-2xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-pink-500/20 transition-all duration-300 relative z-10 shadow-[0_0_30px_rgba(236,72,153,0.2)]">
+                    <i class="fa-solid fa-table-cells text-3xl text-pink-400"></i>
+                </div>
+
+                <h3
+                    class="text-2xl font-bold text-white mb-2 relative z-10 group-hover:text-pink-200 transition-colors">
+                    Tombala</h3>
+                <p class="text-sm text-slate-400 mb-6 relative z-10 leading-relaxed">
+                    Canlı tombala heyecanına ortak olun. Çıkan numaraları ekrandan takip edin.
+                </p>
+
+                <div
+                    class="mt-auto relative z-10 flex items-center gap-2 text-xs font-bold text-pink-400 group-hover:text-pink-300 tracking-wider uppercase">
+                    Şu anda kullanılamıyor <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </a>
+
+            <a role="link" aria-disabled="true" title="Şu anda kullanılamıyor"
+                class="glass-card group relative rounded-3xl p-8 flex flex-col items-center text-center overflow-hidden">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-red-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+
+                <div
+                    class="w-20 h-20 rounded-2xl bg-red-600/10 border border-red-600/20 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-red-600/20 transition-all duration-300 relative z-10 shadow-[0_0_30px_rgba(220,38,38,0.2)]">
+                    <i class="fa-solid fa-ghost text-3xl text-red-500"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold text-white mb-2 relative z-10 group-hover:text-red-200 transition-colors">
+                    Vampir Köylü</h3>
+                <p class="text-sm text-slate-400 mb-6 relative z-10 leading-relaxed">
+                    Köyü koru ya da herkesi avla! İnteraktif rol yapma oyununa katıl.
+                </p>
+
+                <div
+                    class="mt-auto relative z-10 flex items-center gap-2 text-xs font-bold text-red-500 group-hover:text-red-400 tracking-wider uppercase">
+                    Şu anda kullanılamıyor <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="absolute bottom-6 left-0 w-full text-center">
+            <p class="text-[10px] text-slate-600 font-bold tracking-[0.3em] uppercase opacity-50">
+                &copy; 2026 Medya ve Tasarım Ekibi
+            </p>
+            <a href="https://devosuit.com" target="_blank"
+                class="text-[8px] text-slate-700 tracking-[0.2em] uppercase opacity-40 hover:opacity-80 transition-opacity">
+                powered by devosuit
+            </a>
+        </div>
+
+    </main>
+
+<script id="static-site-behavior" src="../assets/site-fixes.js"></script>
+<footer class="modern-footer"><div class="modern-footer-top"><a class="modern-brand" href="../index.html"><img src="../wp-content/uploads/2023/11/4619ae774d4b5a017f280d5f2b16d18f_272x272_fit.png" width="56" height="56" alt="İnovel"><span><strong>İNOVEL.</strong><small>Merakla başlar. Birlikte büyür.</small></span></a><p>2012’den beri fikirleri buluşturuyor,<br>geleceğe birlikte hazırlanıyoruz.</p><a class="modern-footer-mail" href="mailto:iletisim@inoveldpu.com">Bir merhaba ile başlayalım <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" stroke="currentColor" stroke-width="1.7"/></svg></a></div><div class="modern-footer-bottom"><span>Kütahya Dumlupınar Üniversitesi</span><div><a href="https://www.instagram.com/inoveldpu/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://tr.linkedin.com/company/dpuinovel" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://www.youtube.com/channel/UC76OqHh__ep9Ly36NkOb-vQ" target="_blank" rel="noopener noreferrer">YouTube ↗</a><a href="https://www.facebook.com/inovelid/" target="_blank" rel="noopener noreferrer">Facebook ↗</a></div><a href="../iletisim/index.html">İletişim</a></div></footer>
+</body>
+
+</html>

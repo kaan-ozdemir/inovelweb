@@ -1,0 +1,78 @@
+[
+    {
+        "name":  "Semih BAYRAM",
+        "role":  "Departman Koordinatörü",
+        "image":  "assets/team/sponsorship/semih-bayram.jpg",
+        "preview":  "assets/team/previews/sponsorship/semih-bayram.jpg"
+    },
+    {
+        "name":  "Batuhan OKUMUŞ",
+        "role":  "Departman Koordinatörü",
+        "image":  "assets/team/sponsorship/batuhan-okumus.jpg",
+        "preview":  "assets/team/previews/sponsorship/batuhan-okumus.jpg"
+    },
+    {
+        "name":  "Mücahit Efe AKBULUT",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/sponsorship/mucahit-efe-akbulut.jpg",
+        "preview":  "assets/team/previews/sponsorship/mucahit-efe-akbulut.jpg"
+    },
+    {
+        "name":  "Emir BARKIN",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/sponsorship/emir-barkin.jpg",
+        "preview":  "assets/team/previews/sponsorship/emir-barkin.jpg"
+    },
+    {
+        "name":  "Ümran DEDEOĞLU",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/sponsorship/umran-dedeoglu.jpg",
+        "preview":  "assets/team/previews/sponsorship/umran-dedeoglu.jpg"
+    },
+    {
+        "name":  "Afra Beyza YILMAZ",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/sponsorship/afra-beyza-yilmaz.jpg",
+        "preview":  "assets/team/previews/sponsorship/afra-beyza-yilmaz.jpg"
+    },
+    {
+        "name":  "Ömer Fatih TÜZÜN",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/sponsorship/omer-fatih-tuzun.jpg",
+        "preview":  "assets/team/previews/sponsorship/omer-fatih-tuzun.jpg"
+    },
+    {
+        "name":  "Nidanur OKÇU",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/sponsorship/nidanur-okcu.jpg",
+        "preview":  "assets/team/previews/sponsorship/nidanur-okcu.jpg"
+    },
+    {
+        "name":  "Melisa ŞANLI",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/sponsorship/melisa-sanli.jpg",
+        "preview":  "assets/team/previews/sponsorship/melisa-sanli.jpg"
+    },
+    {
+        "name":  "Sueda ARSLAN",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/sponsorship/sueda-arslan.jpg",
+        "preview":  "assets/team/previews/sponsorship/sueda-arslan.jpg"
+    },
+    {
+        "name":  "Büşra BAŞDİNÇ",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/sponsorship/busra-basdinc.jpg",
+        "preview":  "assets/team/previews/sponsorship/busra-basdinc.jpg"
+    },
+    {
+        "name":  "Müberra AÇILAN",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/sponsorship/muberra-acilan.jpg",
+        "preview":  "assets/team/previews/sponsorship/muberra-acilan.jpg"
+    },
+    {
+        "name":  "Muhammed KARDOĞAN",
+        "role":  "Koordinatör Yardımcısı"
+    }
+]

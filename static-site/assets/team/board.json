@@ -1,0 +1,50 @@
+[
+    {
+        "name":  "İbrahim Çağrı DİLBER",
+        "role":  "Yönetim Kurulu Başkanı",
+        "image":  "assets/team/board/ibrahim-cagri-dilber.jpeg",
+        "preview":  "assets/team/previews/board/ibrahim-cagri-dilber.jpg"
+    },
+    {
+        "name":  "Gökhan KAYA",
+        "role":  "Yönetim Kurulu Başkan Yardımcısı",
+        "image":  "assets/team/board/gokhan-kaya.jpg",
+        "preview":  "assets/team/previews/board/gokhan-kaya.jpg"
+    },
+    {
+        "name":  "Ahmet YİĞİT",
+        "role":  "Yönetim Kurulu Başkan Yardımcısı",
+        "image":  "assets/team/board/ahmet-yigit.jpg",
+        "preview":  "assets/team/previews/board/ahmet-yigit.jpg"
+    },
+    {
+        "name":  "Yusuf PALA",
+        "role":  "Yönetim Kurulu Üyesi",
+        "image":  "assets/team/board/yusuf-pala.jpg",
+        "preview":  "assets/team/previews/board/yusuf-pala.jpg"
+    },
+    {
+        "name":  "Batuhan YILMAZ",
+        "role":  "Yönetim Kurulu Üyesi",
+        "image":  "assets/team/board/batuhan-yilmaz.jpeg",
+        "preview":  "assets/team/previews/board/batuhan-yilmaz.jpg"
+    },
+    {
+        "name":  "Yiğit TÜRK",
+        "role":  "Yönetim Kurulu Üyesi",
+        "image":  "assets/team/board/yigit-turk.jpg",
+        "preview":  "assets/team/previews/board/yigit-turk.jpg"
+    },
+    {
+        "name":  "Şevval YEĞİT",
+        "role":  "Yönetim Kurulu Üyesi",
+        "image":  "assets/team/board/sevval-yegit.jpg",
+        "preview":  "assets/team/previews/board/sevval-yegit.jpg"
+    },
+    {
+        "name":  "Buket UÇAN",
+        "role":  "Yönetim Kurulu Üyesi",
+        "image":  "assets/team/board/buket-ucan.jpeg",
+        "preview":  "assets/team/previews/board/buket-ucan.jpg"
+    }
+]

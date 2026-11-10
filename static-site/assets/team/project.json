@@ -1,0 +1,122 @@
+[
+    {
+        "name":  "Mustafa Kaan KALECİ",
+        "role":  "Departman Koordinatörü",
+        "image":  "assets/team/project/mustafa-kaan-kaleci.jpg",
+        "preview":  "assets/team/previews/project/mustafa-kaan-kaleci.jpg"
+    },
+    {
+        "name":  "Esma HARMAN",
+        "role":  "Departman Koordinatörü",
+        "image":  "assets/team/project/esma-harman.jpg",
+        "preview":  "assets/team/previews/project/esma-harman.jpg"
+    },
+    {
+        "name":  "Mehmet Efehan ABAYLI",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/project/mehmet-efehan-abayli.jpg",
+        "preview":  "assets/team/previews/project/mehmet-efehan-abayli.jpg"
+    },
+    {
+        "name":  "Medine Melek BEKAR",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/project/medine-melek-bekar.jpg",
+        "preview":  "assets/team/previews/project/medine-melek-bekar.jpg"
+    },
+    {
+        "name":  "Zeynep ÖZBEK",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/project/zeynep-ozbek.jpg",
+        "preview":  "assets/team/previews/project/zeynep-ozbek.jpg"
+    },
+    {
+        "name":  "Zehranur ERDOĞDU",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/project/zehranur-erdogdu.jpg",
+        "preview":  "assets/team/previews/project/zehranur-erdogdu.jpg"
+    },
+    {
+        "name":  "Nida ŞAHİN",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/project/nida-sahin.jpg",
+        "preview":  "assets/team/previews/project/nida-sahin.jpg"
+    },
+    {
+        "name":  "Şeyda İzabel DAĞ",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/project/seyda-izabel-dag.jpg",
+        "preview":  "assets/team/previews/project/seyda-izabel-dag.jpg"
+    },
+    {
+        "name":  "Tuğçe DEMİRKIRAN",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/project/tugce-demirkiran.jpg",
+        "preview":  "assets/team/previews/project/tugce-demirkiran.jpg"
+    },
+    {
+        "name":  "Talha ÇINAR",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/project/talha-cinar.png",
+        "preview":  "assets/team/previews/project/talha-cinar.jpg"
+    },
+    {
+        "name":  "Hüseyin ALTAY",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/project/huseyin-altay.png",
+        "preview":  "assets/team/previews/project/huseyin-altay.jpg"
+    },
+    {
+        "name":  "Sevcan SESKİN",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/project/sevcan-seskin.jpg",
+        "preview":  "assets/team/previews/project/sevcan-seskin.jpg"
+    },
+    {
+        "name":  "Ali Efe ŞİMŞEK",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/project/ali-efe-simsek.jpg",
+        "preview":  "assets/team/previews/project/ali-efe-simsek.jpg"
+    },
+    {
+        "name":  "Ege ERGEN",
+        "role":  "Koordinatör Yardımcısı"
+    },
+    {
+        "name":  "Fatmanur SÜNDÜR",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/project/fatmanur-sundur.jpg",
+        "preview":  "assets/team/previews/project/fatmanur-sundur.jpg"
+    },
+    {
+        "name":  "Nur GEYGEL",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/project/nur-geygel.jpg",
+        "preview":  "assets/team/previews/project/nur-geygel.jpg"
+    },
+    {
+        "name":  "Berfu KURT",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/project/berfu-kurt.jpg",
+        "preview":  "assets/team/previews/project/berfu-kurt.jpg"
+    },
+    {
+        "name":  "Muharrem EKŞİ",
+        "role":  "Koordinatör Yardımcısı"
+    },
+    {
+        "name":  "Emirhan İDRİSOĞLU",
+        "role":  "Koordinatör Yardımcısı"
+    },
+    {
+        "name":  "Mehmet M. ATIĞ",
+        "role":  "Koordinatör Yardımcısı"
+    },
+    {
+        "name":  "Muhammet Cafer GÖKKAYA",
+        "role":  "Koordinatör Yardımcısı"
+    },
+    {
+        "name":  "Yeliz KARA",
+        "role":  "Koordinatör Yardımcısı"
+    }
+]

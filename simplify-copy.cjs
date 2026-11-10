@@ -1,0 +1,62 @@
+const fs = require('fs');
+const path = require('path');
+const replacements = [
+ ['İnovel — Seyirci kalma. İz bırak.', 'İnovel — DPÜ İnovasyon ve Liderlik Topluluğu'],
+ ['BİR ÖĞRENCİ TOPLULUĞUNDAN FAZLASI.', 'DPÜ İNOVASYON VE LİDERLİK TOPLULUĞU'],
+ ['SEYİRCİ<br>KALMA.<br><span>İZ BIRAK.</span>', 'TANIŞ.<br>KATIL.<br><span>İNOVEL.</span>'],
+ ['Fikrini getir. İnsanlarla tanış.<br>Üniversite hayatına kendi imzanı at.', 'Kariyer etkinlikleri, geziler ve ekip çalışmaları.<br>Kampüste birlikte yaptıklarımızı incele.'],
+ ['AYNI KAMPÜS.<br><span>BAMBAŞKA İHTİMALLER.</span>', 'KAMPÜSTE<br><span>BİRLİKTEYİZ.</span>'],
+ ['2012’den beri merak edenleri bir araya getiriyoruz. Sektörle buluşuyor, fikirleri paylaşıyor, birlikte üretiyoruz. Çünkü bazı deneyimler ders programına sığmaz.', '2012’de kurulan bir öğrenci topluluğuyuz. Kariyer etkinlikleri, teknik geziler ve sosyal buluşmalar düzenliyoruz.'],
+ ['KORKULARIN<br>DEĞİL,<br><span>HEDEFLERİN.</span>', 'KARİYER<br><span>BULUŞMASI.</span>'],
+ ['Kariyer adımlarını birlikte konuştuk. Sektör temsilcileri, ilham veren konuşmacılar ve geleceğini şekillendirmek isteyen gençlerle aynı salonda buluştuk.', 'KASİS’te sektör temsilcileriyle kariyer ve iş hayatını konuştuk. Etkinliğin afişini ve bilgilerini arşivde bulabilirsin.'],
+ ['OKU. DİNLE. YENİDEN DÜŞÜN.', 'DERGİ · PODCAST · BLOG'],
+ ['KAFANI AÇ.', 'YAYINLARIMIZ.'],
+ ['Yeni fikirler, farklı perspektifler.<br>Mevsimlik sayılarımızı keşfet.', 'Dergimizin yayımlanan sayılarını<br>okuyabilir ve indirebilirsin.'],
+ ['Kampüste, yolda, molada.<br>Sohbetimize ortak ol.', 'Podcast bölümlerini<br>buradan dinleyebilirsin.'],
+ ['Kariyer, gelişim, inovasyon.<br>Birlikte düşünmeye devam.', 'Kariyer ve inovasyon üzerine<br>yazılarımızı okuyabilirsin.'],
+ ['BİR FİKRİN<br>VARSA,<br><span>YERİN VAR.</span>', 'EKİBE<br><span>KATIL.</span>'],
+ ['İletişim, tasarım, sponsorluk, marka, akademi… Kendine bir alan bul. Birlikte neler yapabileceğimizi keşfet.', 'Beş departmanda çalışıyoruz. Görevleri inceleyip ilgilendiğin alan için bize yazabilirsin.'],
+ ['BİZE MERHABA DE', 'BİZE YAZ'],
+ ['Merakla başlar. Birlikte büyür.', 'İnovasyon ve Liderlik Topluluğu'],
+ ['2012’den beri fikirleri buluşturuyor,<br>geleceğe birlikte hazırlanıyoruz.', '2012’den beri DPÜ’de<br>etkinlikler düzenliyoruz.'],
+ ['Bir merhaba ile başlayalım', 'E-posta gönder'],
+ ['MERAKLA BAŞLAR. BİRLİKTE BÜYÜR.', 'İNOVEL HAKKINDA'],
+ ['AYNI MERAK.<br>ORTAK BİR<br><span>GELECEK.</span>', 'BİZ<br><span>İNOVEL’İZ.</span>'],
+ ['FİKİRLERİ BULUŞTURDUĞUMUZ İLK YIL.', 'KURULUŞ YILIMIZ.'],
+ ["Biz, iş ve kariyer etkinlikleri düzenleyen, sizleri Türkiye'nin önde gelen yöneticileri ile buluşturan kariyer topluluğuyuz.", 'DPÜ’de iş ve kariyer etkinlikleri düzenleyen bir öğrenci topluluğuyuz. Öğrencilerle sektör temsilcilerini bir araya getiriyoruz.'],
+ ['BİZİ BİZ<br><span>YAPANLAR.</span>', 'TOPLULUK<br><span>EKİBİ.</span>'],
+ ['Farklı alanlar, ortak heyecan.<br>Birlikte düşünen ve üreten ekibimizle tanış.', 'Yönetim kurulumuzu ve departman ekiplerimizi burada bulabilirsin.'],
+ ['BİR SONRAKİ HİKÂYEDE SEN DE OL.', 'TOPLULUĞA KATILIM'],
+ ['YERİN<br><span>HAZIR.</span>', 'BİZE<br><span>YAZ.</span>'],
+ ['Fikrini paylaşmak, kendini geliştirmek ve birlikte üretmek için ilk adımı at.', 'Üyelik ve departman görevleri hakkında bilgi almak için bize yazabilirsin.'],
+ ['FİKRİNİ BUL. ALANINI SEÇ.', 'DEPARTMANLARIMIZ'],
+ ['FARKLI ALANLAR.<br><span>ORTAK BİR<br>HAREKET.</span>', 'HANGİ EKİP<br><span>NE YAPIYOR?</span>'],
+ ['İletişimden tasarıma, iş birliklerinden akademiye. İnovel’de her fikrin katkı sunabileceği bir alan var.', 'Etkinlik hazırlıklarını beş departmanla yürütüyoruz. Her ekibin görevlerini aşağıda inceleyebilirsin.'],
+ ['İZLEMEK YERİNE<br><span>BİR PARÇASI OL.</span>', 'DEPARTMAN<br><span>SEÇİMİ.</span>'],
+ ['Hangi alanda katkı sunmak istediğini bizimle paylaş. Ekiple tanışmak için bir merhaba yeter.', 'İlgilendiğin departmanı bize yaz. Görevler ve katılım hakkında konuşalım.'],
+ ['İZLEMEK GÜZEL. BİR PARÇASI OLMAK BAŞKA.', 'ÜYELİK VE İLETİŞİM'],
+ ['FİKRİNİ GETİR.<br>EKİBE<br><span>KATIL.</span>', 'İNOVEL’E<br><span>KATIL.</span>'],
+ ['Yeni insanlarla tanışmak, birlikte üretmek ve kendini geliştirmek için ilk adımı at. Her bölümden öğrenciye açık bir topluluk seni bekliyor.', 'Her bölümden öğrenci topluluğa katılabilir. Üyelik adımlarını aşağıda bulabilir, sorularını bize yazabilirsin.'],
+ ['MERAKIN YETER.<br>GERİSİNİ BİRLİKTE KEŞFEDERİZ.', 'KONFERANS SALONUNDA<br>İNOVEL EKİBİ.'],
+ ['Ekiple tanış, topluluk hayatına katıl ve yeni deneyimlere yer aç.', 'İlgilendiğin departmanın çalışmalarına ve topluluk etkinliklerine katıl.'],
+ ['FARKLI ALANLAR. ORTAK HEYECAN.', 'DEPARTMAN SEÇİMİ'],
+ ['İLK ADIM, BİR MERHABA.', 'İLETİŞİM'],
+ ['TANIŞALIM.<br><span>KONUŞALIM.</span>', 'BİZE<br><span>YAZ.</span>'],
+ ['YOLUMUZ<br><span>KESİŞSİN.</span>', 'BİZİ<br><span>BUL.</span>'],
+ ['BAZI ANLAR<br>ANLATILMAZ.<br><span>YAŞANIR.</span>', 'ETKİNLİK<br><span>FOTOĞRAFLARI.</span>'],
+ ['Kampüsten sahneye, etkinliklerden ekip buluşmalarına. Birlikte biriktirdiğimiz anlara göz at.', 'Etkinliklerimizden ve ekip buluşmalarımızdan fotoğraflar. Büyütmek için bir fotoğrafa dokun.'],
+ ['KARE.<br>SAYISIZ HATIRA.', 'FOTOĞRAF.'],
+ ['BİR SONRAKİ KADRAJDA SEN DE OL.', 'ETKİNLİKLERİMİZ'],
+ ['HİKÂYE<br><span>DEVAM EDİYOR.</span>', 'DİĞER<br><span>ETKİNLİKLER.</span>'],
+ ['Yeni buluşmalar, yeni insanlar, yeni anılar. Etkinliklerimizi keşfet, toplulukla tanış.', 'Geçmiş etkinliklerin bilgilerine arşivden ulaşabilirsin.'],
+ ['FİKİRLER SADECE SAYFALARDA KALMASIN.', 'TOPLULUK ÇALIŞMALARI'],
+ ['BİRLİKTE<br><span>ÜRETELİM.</span>', 'EKİPLERİ<br><span>TANI.</span>'],
+ ['Topluluğun bir parçası olmak ve ekiple tanışmak için ilk adımı at.', 'Departmanlarımızın görevlerini ve ekiplerini inceleyebilirsin.'],
+];
+const files = [];
+function walk(dir) { for (const entry of fs.readdirSync(dir, {withFileTypes:true})) { const file=path.join(dir,entry.name); if(entry.isDirectory()) walk(file); else if(file.endsWith('.html')) files.push(file); } }
+walk('static-site');
+files.push(...fs.readdirSync('.').filter(file=>/^update-.*\.cjs$/.test(file)), 'navigation-shared.cjs');
+let count=0;
+for(const file of files) { const before=fs.readFileSync(file,'utf8'); let after=before; for(const [from,to] of replacements) after=after.split(from).join(to); if(after!==before){fs.writeFileSync(file,after);count++;} }
+console.log(`${count} dosyada metinler sadeleştirildi.`);

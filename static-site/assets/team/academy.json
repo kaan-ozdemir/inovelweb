@@ -1,0 +1,14 @@
+[
+    {
+        "name":  "Zeki AKTEPE",
+        "role":  "Departman Koordinatörü",
+        "image":  "assets/team/academy/zeki-aktepe.jpg",
+        "preview":  "assets/team/previews/academy/zeki-aktepe.jpg"
+    },
+    {
+        "name":  "Selvi SEZER",
+        "role":  "Departman Koordinatörü",
+        "image":  "assets/team/academy/selvi-sezer.jpg",
+        "preview":  "assets/team/previews/academy/selvi-sezer.jpg"
+    }
+]

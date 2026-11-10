@@ -1,0 +1,27 @@
+/* The static export provides one logo for every navigation state. */
+body .navbar #logo .logo > img.fixed-logo:only-of-type {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Content must remain readable if theme initialization fails. */
+body.loading-effect.fade-in {
+  opacity: 1;
+}
+
+/* Allow all event cards to be reached on small screens. */
+body.event-platform {
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.event-platform [aria-disabled="true"] {
+  cursor: default;
+}

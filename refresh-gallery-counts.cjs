@@ -1,0 +1,10 @@
+const fs=require('node:fs');
+const file='update-gallery.cjs';
+let text=fs.readFileSync(file,'utf8');
+text=text.replace('<span>12<span aria-hidden=', '<span>${photos.length}<span aria-hidden=');
+text=text.replace("[['all','Tümü',12],['topluluk','Topluluk hayatı',6],['sahne','Sahneden',6]]", "[['all','Tümü',photos.length],['topluluk','Topluluk hayatı',photos.filter(p=>p.category==='topluluk').length],['sahne','Sahneden',photos.filter(p=>p.category==='sahne').length]]");
+text=text.replace('>12 fotoğraf</p>','>${photos.length} fotoğraf</p>');
+fs.writeFileSync(file,text,'utf8');
+const test='test-gallery.cjs';
+text=fs.readFileSync(test,'utf8').replace('catalog.map(photo=>photo.original)','catalog.slice(0,12).map(photo=>photo.original)').replace(".length,12)",".length,15)").replaceAll('links[11]','links[14]').replace('visible.length,6','visible.length,7').replace('/01 \\/ 06/','/01 \\/ 07/').replace('visible[5]','visible[6]').replace("!item.hidden).length,6)","!item.hidden).length,8)");
+fs.writeFileSync(test,text,'utf8');

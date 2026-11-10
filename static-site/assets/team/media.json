@@ -1,0 +1,60 @@
+[
+    {
+        "name":  "Rana UTKUTAN",
+        "role":  "Departman Koordinatörü",
+        "image":  "assets/team/media/rana-utkutan.jpg",
+        "preview":  "assets/team/previews/media/rana-utkutan.jpg"
+    },
+    {
+        "name":  "Kaan ÖZDEMİR",
+        "role":  "Departman Koordinatörü",
+        "image":  "assets/team/media/kaan-ozdemir.jpg",
+        "preview":  "assets/team/previews/media/kaan-ozdemir.jpg"
+    },
+    {
+        "name":  "Dilara ÇAKMAK",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/media/dilara-cakmak.jpg",
+        "preview":  "assets/team/previews/media/dilara-cakmak.jpg"
+    },
+    {
+        "name":  "Arzu YILDIRIM",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/media/arzu-yildirim.jpg",
+        "preview":  "assets/team/previews/media/arzu-yildirim.jpg"
+    },
+    {
+        "name":  "Gamze AKMAN",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/media/gamze-akman.jpg",
+        "preview":  "assets/team/previews/media/gamze-akman.jpg"
+    },
+    {
+        "name":  "Reyyan UZUN",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/media/reyyan-uzun.jpg",
+        "preview":  "assets/team/previews/media/reyyan-uzun.jpg"
+    },
+    {
+        "name":  "Sedef ÖZCAN",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/media/sedef-ozcan.jpg",
+        "preview":  "assets/team/previews/media/sedef-ozcan.jpg"
+    },
+    {
+        "name":  "Raif Eren FİŞNECİ",
+        "role":  "Koordinatör Yardımcısı"
+    },
+    {
+        "name":  "Ayşe UÇAR",
+        "role":  "Koordinatör Yardımcısı"
+    },
+    {
+        "name":  "Medine ANDIÇ",
+        "role":  "Koordinatör Yardımcısı"
+    },
+    {
+        "name":  "İkranur ÖZEL",
+        "role":  "Koordinatör Yardımcısı"
+    }
+]

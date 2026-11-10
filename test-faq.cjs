@@ -1,0 +1,52 @@
+const fs = require('node:fs');
+const assert = require('node:assert/strict');
+const { JSDOM } = require('jsdom');
+(async function () {
+  const dom = new JSDOM(fs.readFileSync('static-site/sayfalar/sss/index.html','utf8'), {runScripts:'outside-only',url:'http://127.0.0.1:5500/static-site/sayfalar/sss/index.html'});
+  const d = dom.window.document;
+  const items = [...d.querySelectorAll('[data-faq-item]')];
+  const original = new JSDOM(fs.readFileSync('backups/faq-before-redesign.html','utf8'));
+  const source = [...original.window.document.querySelectorAll('.vc_toggle')].map(el=>({question:el.querySelector('h4').textContent.trim().replace(/^\d+\.\s*/,''),answer:el.querySelector('.vc_toggle_content').textContent.trim()}));
+  assert.equal(items.length,11);
+  for(const row of source) {
+    const item=items.find(item=>item.querySelector('h3').textContent===row.question);
+    assert.ok(item,'Original question is retained');
+    assert.equal(item.querySelector('.faq-answer p').textContent,row.answer,'Original answer is retained');
+  }
+  original.window.close();
+  assert.ok(items.every(item=>item.tagName==='DETAILS' && item.querySelector('summary')),'Native accordions work without scripts');
+  assert.equal(d.querySelector('.faq-tools').hidden,true);
+  dom.window.eval(fs.readFileSync('static-site/assets/faq.js','utf8'));
+  await new Promise(resolve=>setTimeout(resolve,10));
+  assert.equal(d.querySelector('.faq-tools').hidden,false);
+  const button=d.querySelector('.faq-expand');
+  button.click();
+  assert.ok(items.every(item=>item.open));
+  assert.equal(button.getAttribute('aria-expanded'),'true');
+  button.click();
+  assert.ok(items.every(item=>!item.open));
+  const input=d.querySelector('#faq-search');
+  const visible=()=>items.filter(item=>!item.hidden && !item.closest('.faq-group').hidden);
+  function query(text){input.value=text;input.dispatchEvent(new dom.window.Event('input'));}
+  query('kutuphane');
+  assert.equal(visible().length,1,'Search includes answers and normalizes Turkish accents');
+  assert.ok(visible()[0].open,'Matching answer is opened');
+  query('sertifika');
+  assert.equal(visible().length,1);
+  assert.match(visible()[0].querySelector('h3').textContent,/sertifikası/);
+  query('xyz-no-match-123');
+  assert.equal(visible().length,0);
+  assert.equal(button.disabled,true);
+  assert.equal(d.querySelector('.faq-empty').hidden,false);
+  d.querySelector('.faq-reset').click();
+  assert.equal(input.value,'');
+  assert.equal(visible().length,11);
+  assert.ok(items.every(item=>!item.open),'Clearing search restores previous accordion state');
+  assert.equal(d.activeElement,input);
+  query('sertifika');
+  d.querySelector('.faq-sidebar nav a').click();
+  assert.equal(input.value,'','Category links clear a conflicting search');
+  assert.equal(visible().length,11);
+  dom.window.close();
+  console.log('FAQ: 11 original questions/answers, native accordions, expand/collapse, Turkish answer search, empty/reset and category navigation passed.');
+})().catch(error=>{console.error(error);process.exitCode=1;});

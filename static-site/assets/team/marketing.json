@@ -1,0 +1,90 @@
+[
+    {
+        "name":  "Enes BAHADIR",
+        "role":  "Departman Koordinatörü",
+        "image":  "assets/team/marketing/enes-bahadir.jpg",
+        "preview":  "assets/team/previews/marketing/enes-bahadir.jpg"
+    },
+    {
+        "name":  "İlayda YILDIZ",
+        "role":  "Departman Koordinatörü",
+        "image":  "assets/team/marketing/ilayda-yildiz.jpg",
+        "preview":  "assets/team/previews/marketing/ilayda-yildiz.jpg"
+    },
+    {
+        "name":  "Şafak Buğra ELMACI",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/marketing/safak-bugra-elmaci.jpg",
+        "preview":  "assets/team/previews/marketing/safak-bugra-elmaci.jpg"
+    },
+    {
+        "name":  "Barat Göktuğ MISIROĞLU",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/marketing/barat-goktug-misiroglu.jpg",
+        "preview":  "assets/team/previews/marketing/barat-goktug-misiroglu.jpg"
+    },
+    {
+        "name":  "Melek MEHMETALİGİL",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/marketing/melek-mehmetaligil.jpg",
+        "preview":  "assets/team/previews/marketing/melek-mehmetaligil.jpg"
+    },
+    {
+        "name":  "Sinem Gamze ERDOĞAN",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/marketing/sinem-gamze-erdogan.jpg",
+        "preview":  "assets/team/previews/marketing/sinem-gamze-erdogan.jpg"
+    },
+    {
+        "name":  "Hatice HAYTA",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/marketing/hatice-hayta.jpg",
+        "preview":  "assets/team/previews/marketing/hatice-hayta.jpg"
+    },
+    {
+        "name":  "Berre SEVİNÇ",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/marketing/berre-sevinc.jpg",
+        "preview":  "assets/team/previews/marketing/berre-sevinc.jpg"
+    },
+    {
+        "name":  "Şevval BOZDEMİR",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/marketing/sevval-bozdemir.jpg",
+        "preview":  "assets/team/previews/marketing/sevval-bozdemir.jpg"
+    },
+    {
+        "name":  "Rümeysa YORULMAZ",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/marketing/rumeysa-yorulmaz.jpg",
+        "preview":  "assets/team/previews/marketing/rumeysa-yorulmaz.jpg"
+    },
+    {
+        "name":  "Özge GÜLEÇ",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/marketing/ozge-gulec.jpg",
+        "preview":  "assets/team/previews/marketing/ozge-gulec.jpg"
+    },
+    {
+        "name":  "Enes Kaan BAYİK",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/marketing/enes-kaan-bayik.jpg",
+        "preview":  "assets/team/previews/marketing/enes-kaan-bayik.jpg"
+    },
+    {
+        "name":  "Mürsel KARABULUT",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/marketing/mursel-karabulut.png",
+        "preview":  "assets/team/previews/marketing/mursel-karabulut.jpg"
+    },
+    {
+        "name":  "Ayşe DOĞAN",
+        "role":  "Koordinatör Yardımcısı",
+        "image":  "assets/team/marketing/ayse-dogan.jpg",
+        "preview":  "assets/team/previews/marketing/ayse-dogan.jpg"
+    },
+    {
+        "name":  "Tuğçe KEMİKLİ",
+        "role":  "Koordinatör Yardımcısı"
+    }
+]

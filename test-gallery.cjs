@@ -1,0 +1,68 @@
+const fs=require('node:fs');
+const assert=require('node:assert/strict');
+const {JSDOM}=require('jsdom');
+const html=fs.readFileSync('static-site/galeri/index.html','utf8');
+const script=fs.readFileSync('static-site/assets/gallery.js','utf8');
+const catalog=JSON.parse(fs.readFileSync('static-site/assets/gallery/catalog.json','utf8'));
+const wait=()=>new Promise(resolve=>setTimeout(resolve,10));
+(async()=>{
+ const original=new JSDOM(fs.readFileSync('backups/gallery-before-redesign.html','utf8'));
+ assert.deepEqual(catalog.slice(0,12).map(photo=>photo.original),[...original.window.document.querySelectorAll('.mg-single-img>a')].map(a=>a.getAttribute('href')),'All twelve original photos are retained');
+ original.window.close();
+ const base={runScripts:'outside-only',url:'http://127.0.0.1:5500/static-site/galeri/index.html',pretendToBeVisual:true};
+ const fallback=new JSDOM(html,base);
+ assert.equal(fallback.window.document.querySelectorAll('[data-gallery-photo]').length,18);
+ assert.equal(fallback.window.document.querySelector('.gallery-controls').hidden,true);
+ assert.ok([...fallback.window.document.querySelectorAll('[data-gallery-photo]')].every(a=>!a.href.endsWith('.heic')),'All image destinations use browser-compatible formats');
+ fallback.window.HTMLDialogElement.prototype.showModal=undefined;
+ fallback.window.eval(script);await wait();
+ const fallbackClick=new fallback.window.MouseEvent('click',{bubbles:true,cancelable:true,button:0});
+ fallback.window.document.querySelector('[data-gallery-photo]').dispatchEvent(fallbackClick);
+ assert.equal(fallbackClick.defaultPrevented,false,'Unsupported dialog falls back to the original image link');
+ fallback.window.close();
+ const dom=new JSDOM(html,base);
+ // jsdom does not implement browser top-layer layout; emulate the native API only.
+ dom.window.HTMLDialogElement.prototype.showModal=function(){this.open=true;};
+ dom.window.HTMLDialogElement.prototype.close=function(){this.open=false;this.dispatchEvent(new dom.window.Event('close'));};
+ dom.window.eval(script);await wait();
+ const d=dom.window.document,dialog=d.querySelector('.gallery-viewer'),image=d.querySelector('.gallery-viewer-image');
+ const links=[...d.querySelectorAll('[data-gallery-photo]')];
+ links[0].click();assert.equal(dialog.open,true);assert.equal(image.src,links[0].href);
+ assert.equal(d.activeElement,d.querySelector('.gallery-close'));
+ d.querySelector('.gallery-next').click();assert.equal(image.src,links[1].href);
+ const stage=d.querySelector('.gallery-viewer-stage');
+ function touch(type,x,y,multiple){
+  const event=new dom.window.Event(type,{bubbles:true});
+  const point={clientX:x,clientY:y};
+  Object.defineProperty(event,'touches',{value:type==='touchend'?[]:multiple?[point,point]:[point]});
+  Object.defineProperty(event,'changedTouches',{value:[point]});
+  image.dispatchEvent(event);
+ }
+ touch('touchstart',200,100);touch('touchend',100,105);assert.equal(image.src,links[2].href,'Left swipe advances');
+ touch('touchstart',100,100);touch('touchend',200,105);assert.equal(image.src,links[1].href,'Right swipe goes back');
+ touch('touchstart',200,100);touch('touchend',190,105);assert.equal(image.src,links[1].href,'Short gesture ignored');
+ touch('touchstart',200,100);touch('touchend',130,250);assert.equal(image.src,links[1].href,'Vertical gesture ignored');
+ touch('touchstart',200,100);touch('touchmove',180,100,true);touch('touchend',100,100);assert.equal(image.src,links[1].href,'Pinch gesture ignored');
+ touch('touchstart',200,100);touch('touchcancel',150,100);touch('touchend',100,100);assert.equal(image.src,links[1].href,'Cancelled gesture ignored');
+ function key(value){d.dispatchEvent(new dom.window.KeyboardEvent('keydown',{key:value,bubbles:true,cancelable:true}));}
+ key('ArrowLeft');assert.equal(image.src,links[0].href);
+ key('ArrowLeft');assert.equal(image.src,links[links.length-1].href,'Previous wraps around');
+ key('Home');assert.equal(image.src,links[0].href);
+ key('End');assert.equal(image.src,links[links.length-1].href);
+ image.dispatchEvent(new dom.window.Event('error'));assert.match(d.querySelector('.gallery-loading').textContent,/yüklenemedi/);
+ image.dispatchEvent(new dom.window.Event('load'));assert.equal(d.querySelector('.gallery-loading').hidden,true);
+ key('Escape');assert.equal(dialog.open,false);assert.equal(d.activeElement,links[0]);assert.ok(!d.documentElement.classList.contains('gallery-viewer-open'));
+ d.querySelector('[data-gallery-filter="sahne"]').click();
+ const visible=[...d.querySelectorAll('[data-gallery-item]')].filter(item=>!item.hidden).map(item=>item.querySelector('a'));
+ assert.equal(visible.length,7);
+ visible[0].click();assert.equal(image.src,visible[0].href);
+ assert.match(d.querySelector('.gallery-viewer-count').textContent,/01 \/ 07/);
+ key('ArrowLeft');assert.equal(image.src,visible[6].href,'Viewer stays inside the selected category');
+ d.querySelector('.gallery-close').click();assert.equal(d.activeElement,visible[0]);
+ d.querySelector('[data-gallery-filter="topluluk"]').click();assert.equal([...d.querySelectorAll('[data-gallery-item]')].filter(item=>!item.hidden).length,11);
+ d.querySelector('[data-gallery-filter="all"]').click();assert.ok([...d.querySelectorAll('[data-gallery-item]')].every(item=>!item.hidden));
+ const modified=new dom.window.MouseEvent('click',{bubbles:true,cancelable:true,button:0,ctrlKey:true});links[0].dispatchEvent(modified);assert.equal(modified.defaultPrevented,false,'Ctrl-click retains normal link behavior');
+ const converted=fs.readFileSync('static-site/assets/gallery/IMG_5458.jpg');assert.equal(converted[0],255);assert.equal(converted[1],216);
+ dom.window.close();
+ console.log('Gallery: '+catalog.length+' photos, 12 originals preserved, JPEG compatibility, category filters, viewer navigation, keyboard, focus return and error states passed.');
+})().catch(error=>{console.error(error);process.exitCode=1;});

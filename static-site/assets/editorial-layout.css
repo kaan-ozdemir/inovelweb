@@ -158,3 +158,26 @@
 .zine-event-info h2>span{color:#65a6af;background:linear-gradient(135deg,#c5e0de 0%,#488b99 35%,#173f4b 62%,#83b5b6 82%,#d7c49b 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;-webkit-text-stroke:1px #baa47a;filter:drop-shadow(2px 3px 0 #071a22)}
 
 
+
+/* Reserve separate lanes for the overlaid navigation and hero controls. */
+.modern-home.direction-editorial .zine-hero-top{top:110px}
+.modern-home.direction-editorial .home-photo-open>span{top:145px}
+.modern-home.direction-editorial .zine-hero-content{padding-top:195px;padding-bottom:70px}
+@media(min-width:701px){.modern-home.direction-editorial .zine-hero{min-height:640px}.modern-home.direction-editorial .zine-hero h1{font-size:clamp(80px,10.6vw,164px)}}
+@media(max-width:700px){
+ .modern-home.direction-editorial .zine-hero-top{top:98px;right:20px}
+ .modern-home.direction-editorial .home-photo-open>span{top:128px}
+ .modern-home.direction-editorial .zine-hero-content{padding:200px 22px 65px}
+ .modern-home.direction-editorial .zine-hero h1{font-size:clamp(42px,14vw,98px);letter-spacing:-1px;line-height:.96}
+ .modern-home.direction-editorial .zine-kicker{letter-spacing:1px;line-height:1.7}
+}
+
+/* Simplified home cover, with navigation above the main heading. */
+.modern-home.direction-editorial .zine-hero{aspect-ratio:auto;height:clamp(640px,62vw,1000px);min-height:640px;max-height:none}
+.modern-home.direction-editorial .zine-hero-photo{height:100%;object-fit:cover;object-position:center 65%}
+.modern-home.direction-editorial .zine-hero-content{padding:130px 60px 60px;justify-content:center}
+@media(max-width:700px){
+ .modern-home.direction-editorial .zine-hero{height:85svh;min-height:560px}
+ .modern-home.direction-editorial .zine-hero-content{padding:120px 22px 45px}
+ .modern-home.direction-editorial .zine-hero-photo{object-position:center 65%}
+}

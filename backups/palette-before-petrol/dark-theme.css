@@ -1,0 +1,68 @@
+﻿/* Dark identity: bright accents, quiet surfaces, readable content. */
+:root{color-scheme:dark;--inovel-ink:#eff3f8;--inovel-muted:#aab6c8;--inovel-red:#ff826c;--inovel-paper:#0d1420;--inovel-line:#2a3546;--inovel-white:#172332;--inovel-accent:#c5f76b;--inovel-surface:#142132}
+.modern-home{background:#0d1420;color:#eff3f8}
+.modern-header{background:rgba(13,20,32,.97);border-color:#263244;backdrop-filter:blur(16px)}
+.modern-header .modern-brand small{color:#aab6c8}
+.modern-header .modern-brand img,.modern-footer .modern-brand img{border-radius:50%;background:#fff}
+.modern-dropdown>div{background:#172332;border-color:#354257;box-shadow:0 16px 36px #0005}
+.modern-dropdown>div a:hover{background:#243349}
+.modern-menu .modern-contact{background:#c5f76b;color:#10191d!important}
+.modern-menu .modern-contact:hover{background:#dcff9d;color:#10191d!important}
+.modern-skip{background:#c5f76b;color:#10191d}
+.modern-hero{position:relative}
+.modern-hero h1{font-weight:780}
+.modern-hero h1 em{color:#c5f76b}
+.modern-hero .modern-eyebrow>span{background:#c5f76b;box-shadow:0 0 14px #c5f76555}
+.modern-hero-visual figure{background:#172332}
+.modern-hero-visual figure::before{background:#24394a}
+.modern-hero-visual figcaption{background:#19283b;color:#eff3f8;border:1px solid #2c3b4e;border-top:0}
+.modern-photo-mark{background:#ff785f;color:#121a25;box-shadow:0 10px 30px #0005}
+.modern-note-line{background:#c5f76b}
+.modern-btn-dark{background:#c5f76b;color:#10191d!important}
+.modern-btn-dark:hover{background:#dcff9d}
+.modern-btn-light{background:#ff826c;color:#151b26!important}
+.modern-btn-light:hover{background:#ffa18f}
+.modern-text-link:hover{color:#c5f76b}
+.modern-values{background:#c5f76b;color:#142220;font-weight:650}
+.modern-values [aria-hidden]{color:#315630}
+.modern-event-feature{background:#172332;border:1px solid #2a3546;color:#eff3f8}
+.modern-event-photo>span{background:#0d1420ee;color:#c5f76b;border:1px solid #ffffff20}
+.modern-event-copy h3 em{color:#ff826c}
+.modern-content-item{border-color:#334055;box-shadow:none}
+.modern-content-item:hover{border-color:#c5f76b}
+.modern-content-magazine{background:#292134}
+.modern-content-podcast{background:#17332c}
+.modern-content-blog{background:#202c46}
+.modern-content-item>p{color:#b9c2cf}
+.modern-book{background:#ff826c;color:#17202b;border-left-color:#ffffff60;box-shadow:7px 8px 0 #594258}
+.modern-sound-art span{background:#c5f76b}
+.modern-type-art{color:#b4a9ff}
+.modern-about-band{background:#1b293b;border-color:#324056}
+.modern-about-band h2 em{color:#c5f76b}
+.modern-about-band>div:last-child p{color:#bac5d3}
+.modern-partners .modern-eyebrow{color:#aab6c8}
+.modern-partner-logos img{background:#fff;border-radius:5px;padding:8px 12px;mix-blend-mode:normal;object-fit:contain}
+.modern-footer{background:#080e17;border-top:1px solid #273244;color:#eff3f8}
+.modern-footer-top{border-color:#263244}
+.modern-footer .modern-brand strong{color:#eff3f8}
+.modern-footer-mail{color:#c5f76b!important;border-color:#c5f76b88}
+.modern-footer a:hover{color:#c5f76b}
+.modern-footer-bottom{color:#aab6c8}
+/* Existing article, gallery and magazine content shares the dark palette. */
+body.modern-inner{background:#0d1420;color:#d4deea}
+.modern-inner h1,.modern-inner h2,.modern-inner h3,.modern-inner h4,.modern-inner h5,.modern-inner h6{color:#eff3f8!important}
+.modern-inner .vc_row,.modern-inner .vc_column-inner{background-color:transparent!important}
+.modern-inner .entry-content,.modern-inner .blog-single-content,.modern-inner .blog-content,.modern-inner .blog-post,.modern-inner .blog-post-content,.modern-inner .vc_tta-panel-body,.modern-inner .vc_tta-panel-heading{background-color:#142132!important;color:#d4deea!important;border-color:#344157!important}
+.modern-inner .entry-content p,.modern-inner .wpb_wrapper p,.modern-inner .blog-post-content p{color:#b9c5d5}
+.modern-inner .entry-content a:not(.modern-btn),.modern-inner .wpb_wrapper a:not(.modern-btn):not(.mg-single-img a){color:#c5f76b}
+.modern-inner .header-breadcrumbs,.modern-inner .page-header{background-color:#142132!important;border-color:#2a3546}
+.modern-inner .header-breadcrumbs a,.modern-inner .header-breadcrumbs span{color:#bac5d3!important}
+.modern-inner .magazine-unavailable{background:#1b293b;color:#d4deea;border-block:1px solid #344157}
+.modern-inner .magazine-unavailable a{color:#c5f76b}
+.modern-inner input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]),.modern-inner textarea{background:#142132!important;border-color:#42516a!important;color:#eff3f8!important;color-scheme:dark}
+.modern-inner input::placeholder,.modern-inner textarea::placeholder{color:#aab6c8!important;opacity:1}
+.modern-inner input[type="submit"]{background:#c5f76b!important;color:#10191d!important;border-color:#c5f76b!important}
+.modern-inner .wpcf7-response-output{background:#142132;color:#d4deea;border-color:#42516a!important}
+.modern-inner .wpcf7-response-output a{color:#c5f76b}
+.modern-inner .kd-panel-header,.modern-inner .kd-side-panel,.modern-inner .side-panel{background-color:#142132;color:#eff3f8}
+@media(max-width:950px){.modern-menu{background:#0d1420;box-shadow:0 16px 28px #0005}.modern-dropdown>div{background:#172332}}

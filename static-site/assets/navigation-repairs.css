@@ -26,3 +26,7 @@
  .direction-editorial button,.direction-editorial input:not([type=checkbox]):not([type=radio]),.direction-editorial select{min-height:44px}
  .direction-editorial .gallery-previous,.direction-editorial .gallery-next,.direction-editorial .gallery-close{min-width:44px}
 }
+
+
+/* Transparent header stays in the document flow instead of following scroll. */
+html body .modern-header{position:relative!important;top:auto!important;background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important;border-bottom-color:transparent!important}

@@ -119,3 +119,5 @@
  .about-person-photo{transition:none}
 }
 .about-team-group .about-people{overflow:clip;padding-top:8px;padding-bottom:12px}
+
+.about-community>img{object-position:center 52%}

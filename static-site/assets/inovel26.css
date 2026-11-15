@@ -1,0 +1,463 @@
+/* The event poster sets the palette for this page. */
+.inovel26-page {
+  --inovel-ink: #f4f0e6;
+  --inovel-muted: #aab9be;
+  --inovel-red: #cbb78e;
+  --inovel-paper: #101723;
+  --inovel-line: #54757955;
+  --inovel-white: #152832;
+  --inovel-accent: #69a8ae;
+  --inovel-surface: #152832;
+  margin: 0;
+  color: var(--inovel-ink);
+  background:
+    radial-gradient(ellipse at 87% 22%, #23525a75, transparent 46%),
+    radial-gradient(ellipse at 9% 70%, #142e3b80, transparent 48%),
+    #101723;
+}
+
+.inovel26-page ::selection {
+  background: #cbb78e;
+  color: #101723;
+}
+
+.inovel26-page .modern-header {
+  border-bottom: 1px solid #54757955;
+}
+
+.inovel26-page .modern-brand small,
+.inovel26-page .modern-platform-link > small {
+  color: #aab9be;
+}
+
+.inovel26-page .modern-brand .brand-dot {
+  color: #cbb78e;
+}
+
+.inovel26-page .modern-menu > a,
+.inovel26-page .modern-dropdown summary,
+.inovel26-page .modern-event-toggle,
+.inovel26-page .modern-event-submenu > a,
+.inovel26-page .modern-dropdown > div > a {
+  color: #f4f0e6 !important;
+}
+
+.inovel26-page .modern-menu > a:hover,
+.inovel26-page .modern-dropdown summary:hover,
+.inovel26-page .modern-event-toggle:hover {
+  color: #cbb78e !important;
+}
+
+.inovel26-page .modern-menu .modern-contact {
+  border: 1px solid #cbb78e80;
+  background: #cbb78e;
+  color: #101723 !important;
+}
+
+.inovel26-page .modern-menu .modern-contact:hover {
+  background: #e0cda7;
+  color: #101723 !important;
+}
+
+.inovel26-page .modern-dropdown > div,
+.inovel26-page .modern-event-submenu {
+  border-color: #54757970;
+  background: #152832;
+  box-shadow: 0 18px 45px #030b1366;
+}
+
+.inovel26-page .modern-dropdown > div > a:hover,
+.inovel26-page .modern-event-submenu > a:hover {
+  background: #23404a;
+  color: #e0cda7 !important;
+}
+
+.inovel26-page .modern-header .modern-menu-toggle {
+  border-color: #54757980;
+  color: #f4f0e6;
+}
+
+.inovel26-page .modern-skip {
+  background: #cbb78e;
+  color: #101723;
+}
+
+.inovel26-page :is(a, button, summary):focus-visible {
+  outline: 2px solid #e0cda7;
+  outline-offset: 5px;
+}
+
+.inovel26-page .inovel26-wrap {
+  width: min(1340px, calc(100% - 112px));
+  margin-inline: auto;
+}
+
+.inovel26-page .inovel26-hero {
+  padding-top: 28px;
+  padding-bottom: 78px;
+}
+
+.inovel26-page .events-breadcrumb {
+  margin-bottom: 44px;
+  color: #aab9be;
+  font-size: 10px;
+}
+
+.inovel26-page .events-breadcrumb [aria-current] {
+  color: #e0cda7;
+}
+
+.inovel26-page .events-breadcrumb a:hover {
+  color: #e0cda7;
+}
+
+.inovel26-page .inovel26-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(48px, 7vw, 110px);
+}
+
+.inovel26-page .inovel26-copy {
+  min-width: 0;
+  padding-block: 16px;
+}
+
+.inovel26-page .inovel26-date {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 24px;
+  color: #cbb78e;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 2.2px;
+  line-height: 1.6;
+}
+
+.inovel26-page .inovel26-date::before {
+  width: 32px;
+  height: 1px;
+  background: #cbb78e;
+  content: "";
+}
+
+.inovel26-page #inovel26-title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0;
+  font-family: var(--inovel-display);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -2px;
+}
+
+.inovel26-page .inovel26-word {
+  color: #f4f0e6;
+  font-size: clamp(64px, 6.7vw, 108px);
+  text-shadow: 0 5px 30px #0003;
+}
+
+.inovel26-page .inovel26-number {
+  color: #69a8ae;
+  background: linear-gradient(135deg, #e1d2b0 8%, #8bbdc1 29%, #376c7b 52%, #76a5aa 72%, #d6c49d 94%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px #cbb78e;
+  font-size: clamp(84px, 9.4vw, 150px);
+  filter: drop-shadow(3px 5px 0 #08121c);
+}
+
+.inovel26-page .inovel26-motto {
+  margin: 30px 0 36px;
+  color: #e4e9e7;
+  font-size: clamp(20px, 2vw, 29px);
+  font-weight: 450;
+  letter-spacing: -0.6px;
+  line-height: 1.45;
+}
+
+.inovel26-page .inovel26-facts {
+  margin: 0;
+  border-top: 1px solid #54757966;
+}
+
+.inovel26-page .inovel26-facts > div {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid #54757966;
+}
+
+.inovel26-page .inovel26-facts dt {
+  color: #aab9be;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1.3px;
+  line-height: 1.6;
+}
+
+.inovel26-page .inovel26-facts dd {
+  margin: 0;
+  color: #f4f0e6;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.inovel26-page .inovel26-status {
+  margin: 20px 0 29px;
+  color: #aab9be;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.inovel26-page .inovel26-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 26px;
+  min-height: 44px;
+  border-bottom: 1px solid #cbb78e88;
+  color: #cbb78e;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  line-height: 1.6;
+}
+
+.inovel26-page .inovel26-back:hover {
+  color: #f4f0e6;
+  border-color: #f4f0e6;
+}
+
+.inovel26-page .inovel26-poster {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  max-width: 460px;
+  margin: 0;
+  justify-self: end;
+}
+
+.inovel26-page .inovel26-poster::before {
+  position: absolute;
+  z-index: -1;
+  inset: 18px -18px 48px 18px;
+  border: 1px solid #cbb78e55;
+  content: "";
+}
+
+.inovel26-page .inovel26-poster > a {
+  display: block;
+  padding: 0;
+  border: 1px solid #cbb78e50;
+  background: #101723;
+  box-shadow: 0 24px 70px #030a1555;
+}
+
+.inovel26-page .inovel26-poster img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
+.inovel26-page .inovel26-poster figcaption {
+  margin-top: 19px;
+}
+
+.inovel26-page .inovel26-poster figcaption a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 44px;
+  color: #aab9be;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.inovel26-page .inovel26-poster figcaption a:hover {
+  color: #e0cda7;
+}
+
+.inovel26-page .inovel26-footer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 36px;
+  padding-block: 27px 32px;
+  border-top: 1px solid #54757966;
+}
+
+.inovel26-page .inovel26-footer > a:first-child {
+  color: #cbb78e;
+  font-family: var(--inovel-display);
+  font-size: 27px;
+  letter-spacing: -0.5px;
+}
+
+.inovel26-page .inovel26-footer p {
+  color: #aab9be;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.inovel26-page .inovel26-footer > a:last-child {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: #f4f0e6;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.inovel26-page .inovel26-footer > a:hover {
+  color: #e0cda7;
+}
+
+@media (max-width: 1100px) {
+  .inovel26-page .inovel26-wrap {
+    width: calc(100% - 72px);
+  }
+
+  .inovel26-page .inovel26-layout {
+    gap: 44px;
+  }
+
+  .inovel26-page .inovel26-word {
+    font-size: 6.7vw;
+  }
+
+  .inovel26-page .inovel26-number {
+    font-size: 9vw;
+  }
+
+  .inovel26-page .inovel26-motto {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 950px) {
+  .inovel26-page .modern-menu {
+    background: #101f2b;
+    border-bottom: 1px solid #54757970;
+  }
+
+  .inovel26-page .modern-dropdown > div,
+  .inovel26-page .modern-event-submenu {
+    background: #152832;
+  }
+}
+
+@media (max-width: 760px) {
+  .inovel26-page .inovel26-wrap {
+    width: calc(100% - 44px);
+  }
+
+  .inovel26-page .inovel26-hero {
+    padding-top: 20px;
+    padding-bottom: 48px;
+  }
+
+  .inovel26-page .events-breadcrumb {
+    margin-bottom: 26px;
+    font-size: 9px;
+  }
+
+  .inovel26-page .inovel26-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 42px;
+  }
+
+  .inovel26-page .inovel26-copy {
+    padding-block: 0;
+  }
+
+  .inovel26-page .inovel26-date {
+    margin-bottom: 20px;
+    font-size: 10px;
+    letter-spacing: 1.7px;
+  }
+
+  .inovel26-page #inovel26-title {
+    gap: 9px;
+    letter-spacing: -1.5px;
+  }
+
+  .inovel26-page .inovel26-word {
+    font-size: clamp(62px, 14vw, 98px);
+  }
+
+  .inovel26-page .inovel26-number {
+    font-size: clamp(82px, 19vw, 132px);
+  }
+
+  .inovel26-page .inovel26-motto {
+    margin-block: 23px 28px;
+    font-size: 23px;
+  }
+
+  .inovel26-page .inovel26-facts > div {
+    padding-block: 14px;
+  }
+
+  .inovel26-page .inovel26-status {
+    margin-bottom: 16px;
+  }
+
+  .inovel26-page .inovel26-poster {
+    width: calc(100% - 14px);
+    justify-self: start;
+  }
+
+  .inovel26-page .inovel26-poster::before {
+    inset: 14px -14px 47px 14px;
+  }
+
+  .inovel26-page .inovel26-footer {
+    grid-template-columns: 1fr auto;
+    gap: 14px 24px;
+    padding-block: 24px;
+  }
+
+  .inovel26-page .inovel26-footer p {
+    grid-row: 2;
+    grid-column: 1 / -1;
+  }
+
+  .inovel26-page .inovel26-footer > a:last-child {
+    grid-row: 1;
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 360px) {
+  .inovel26-page .inovel26-wrap {
+    width: calc(100% - 36px);
+  }
+
+  .inovel26-page .inovel26-word {
+    font-size: 17vw;
+  }
+
+  .inovel26-page .inovel26-number {
+    font-size: 22vw;
+  }
+
+  .inovel26-page .inovel26-motto {
+    font-size: 20px;
+  }
+
+  .inovel26-page .inovel26-facts > div {
+    grid-template-columns: 62px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .inovel26-page .inovel26-facts dd {
+    font-size: 13px;
+  }
+}

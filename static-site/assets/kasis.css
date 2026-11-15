@@ -1,0 +1,516 @@
+/* Burgundy, copper and charcoal from the KASİS poster. */
+.kasis-page {
+  --inovel-ink: #f3eade;
+  --inovel-muted: #b8aca0;
+  --inovel-paper: #111511;
+  --inovel-red: #d3b486;
+  --inovel-accent: #b6654c;
+  --inovel-line: #b08b6640;
+  --inovel-white: #211b17;
+  --inovel-surface: #211b17;
+  color: var(--inovel-ink);
+  background:
+    radial-gradient(ellipse at 12% 17%, #64212670, transparent 48%),
+    radial-gradient(ellipse at 94% 38%, #243c2c60, transparent 50%),
+    #111511;
+}
+
+.kasis-page ::selection {
+  color: #17130f;
+  background: #d3b486;
+}
+
+.kasis-page .modern-brand small,
+.kasis-page .modern-platform-link > small {
+  color: #b8aca0;
+}
+
+.kasis-page .modern-brand .brand-dot {
+  color: #bd735c;
+}
+
+.kasis-page .modern-menu > a,
+.kasis-page .modern-dropdown summary,
+.kasis-page .modern-event-toggle,
+.kasis-page .modern-dropdown > div > a,
+.kasis-page .modern-event-submenu > a {
+  color: #f3eade !important;
+}
+
+.kasis-page .modern-menu > a:hover,
+.kasis-page .modern-dropdown summary:hover,
+.kasis-page .modern-event-toggle:hover {
+  color: #d3b486 !important;
+}
+
+.kasis-page .modern-menu .modern-contact {
+  color: #17130f !important;
+  background: #d3b486;
+  border: 1px solid #d3b486;
+}
+
+.kasis-page .modern-menu .modern-contact:hover {
+  color: #17130f !important;
+  background: #ead2ab;
+  border-color: #ead2ab;
+}
+
+.kasis-page .modern-dropdown > div,
+.kasis-page .modern-event-submenu {
+  background: #211b17;
+  border-color: #b08b6655;
+  box-shadow: 0 16px 40px #080c0855;
+}
+
+.kasis-page .modern-dropdown > div > a:hover,
+.kasis-page .modern-event-submenu > a:hover {
+  color: #ead2ab !important;
+  background: #442a24;
+}
+
+.kasis-page .modern-header .modern-menu-toggle {
+  color: #f3eade;
+  border-color: #b08b6666;
+}
+
+.kasis-page .modern-skip {
+  color: #17130f;
+  background: #d3b486;
+}
+
+.kasis-page :is(a, button, summary):focus-visible {
+  outline: 2px solid #ead2ab;
+  outline-offset: 5px;
+}
+
+.kasis-page .kasis-wrap {
+  width: min(1340px, calc(100% - 112px));
+  margin-inline: auto;
+}
+
+.kasis-page .kasis-hero {
+  padding-block: 28px 76px;
+}
+
+.kasis-page .events-breadcrumb {
+  color: #b8aca0;
+  margin-bottom: 44px;
+}
+
+.kasis-page .events-breadcrumb [aria-current],
+.kasis-page .events-breadcrumb a:hover {
+  color: #ead2ab;
+}
+
+.kasis-page .kasis-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(48px, 7vw, 110px);
+}
+
+.kasis-page .kasis-copy {
+  min-width: 0;
+  padding-block: 12px;
+}
+
+.kasis-page .kasis-kicker {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 0 0 24px;
+  color: #d3b486;
+  font-size: 10px;
+  line-height: 1.7;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.kasis-page .kasis-kicker::before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: #b6654c;
+  flex-shrink: 0;
+}
+
+.kasis-page .kasis-title {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -3px;
+}
+
+.kasis-page .kasis-word {
+  color: #d99678;
+  background: linear-gradient(150deg, #f0d6ad 3%, #d9987e 26%, #a13b32 52%, #d99472 77%, #e4c89d);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(88px, 8.5vw, 142px);
+  text-shadow: 0 12px 44px #a43c2420;
+}
+
+.kasis-page .kasis-edition {
+  color: #d3b486;
+  font-size: clamp(30px, 3.2vw, 48px);
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+
+.kasis-page .kasis-motto {
+  margin: 28px 0 25px;
+  color: #f3eade;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(24px, 2.3vw, 34px);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+}
+
+.kasis-page .kasis-description {
+  max-width: 470px;
+  margin: 0 0 28px;
+  color: #c0b4a9;
+  font-size: 13px;
+  line-height: 1.95;
+}
+
+.kasis-page .kasis-facts {
+  margin: 30px 0 0;
+  border-top: 1px solid #b08b664a;
+}
+
+.kasis-page .kasis-facts > div {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 20px;
+  padding-block: 15px;
+  border-bottom: 1px solid #b08b664a;
+}
+
+.kasis-page .kasis-facts dt {
+  color: #b8aca0;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 1.6;
+}
+
+.kasis-page .kasis-facts dd {
+  margin: 0;
+  color: #f3eade;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.kasis-page .kasis-status {
+  margin: 20px 0 24px;
+  color: #b8aca0;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.kasis-page .kasis-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  min-height: 44px;
+  padding-block: 7px;
+  color: #d3b486;
+  border-bottom: 1px solid #b08b6688;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.kasis-page .kasis-link:hover {
+  color: #f3eade;
+  border-color: #f3eade;
+}
+
+.kasis-page .kasis-poster {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  max-width: 460px;
+  margin: 0;
+  justify-self: end;
+}
+
+.kasis-page .kasis-poster > a {
+  display: block;
+  padding: 0;
+  background: #181813;
+  border: 1px solid #bd735c66;
+  box-shadow: 0 24px 70px #05090466;
+}
+
+.kasis-page .kasis-poster img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
+.kasis-page .kasis-poster figcaption {
+  margin-top: 15px;
+}
+
+.kasis-page .kasis-poster figcaption a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 44px;
+  color: #b8aca0;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.kasis-page .kasis-poster figcaption a:hover {
+  color: #ead2ab;
+}
+
+.kasis-page .kasis-footer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 36px;
+  padding-block: 28px 32px;
+  border-top: 1px solid #b08b664a;
+}
+
+.kasis-page .kasis-footer-brand {
+  color: #d3b486;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  letter-spacing: -1px;
+}
+
+.kasis-page .kasis-footer p {
+  margin: 0;
+  color: #b8aca0;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.kasis-page .kasis-footer > a:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: #f3eade;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.kasis-page .kasis-footer > a:hover {
+  color: #ead2ab;
+}
+
+/* The earlier event uses the red and stone-metal identity of its own poster. */
+.kasis-page.kasis-2023-page {
+  --inovel-paper: #15090a;
+  --inovel-accent: #a5282c;
+  --inovel-white: #251517;
+  --inovel-surface: #251517;
+  background:
+    radial-gradient(ellipse at 27% 27%, #8b151c88, transparent 58%),
+    radial-gradient(ellipse at 96% 65%, #4b101b55, transparent 48%),
+    #15090a;
+}
+
+.kasis-page.kasis-2023-page .kasis-title {
+  font-family: var(--inovel-display);
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.kasis-page.kasis-2023-page .kasis-word {
+  color: #c8b9b4;
+  background: linear-gradient(145deg, #e1d4cc 2%, #ac918b 23%, #665e5e 47%, #b3a29c 69%, #e0ccc1 92%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 1px #9e827c;
+  filter: drop-shadow(3px 5px 0 #100608);
+  text-shadow: none;
+}
+
+.kasis-page.kasis-2023-page .kasis-edition {
+  color: #dcc07e;
+  letter-spacing: 1px;
+}
+
+.kasis-page.kasis-2023-page .kasis-motto {
+  font-family: var(--inovel-display);
+  font-weight: 400;
+  color: #e1cda5;
+  letter-spacing: 0.4px;
+}
+
+.kasis-page.kasis-2023-page .kasis-kicker::before {
+  background: #d14847;
+}
+
+.kasis-page.kasis-2023-page .kasis-poster > a {
+  border-color: #96706b80;
+  background: #1c090c;
+  box-shadow: 0 24px 70px #0a020866;
+}
+
+.kasis-page.kasis-2023-page .modern-dropdown > div,
+.kasis-page.kasis-2023-page .modern-event-submenu {
+  background: #251517;
+}
+
+.kasis-page.kasis-2023-page .modern-dropdown > div > a:hover,
+.kasis-page.kasis-2023-page .modern-event-submenu > a:hover {
+  background: #4b2024;
+}
+
+.kasis-page.kasis-2023-page .kasis-footer-brand {
+  font-family: var(--inovel-display);
+  letter-spacing: 1px;
+}
+
+@media (max-width: 1100px) {
+  .kasis-page .kasis-wrap {
+    width: calc(100% - 72px);
+  }
+
+  .kasis-page .kasis-layout {
+    gap: 44px;
+  }
+
+  .kasis-page .kasis-title {
+    column-gap: 15px;
+  }
+
+  .kasis-page .kasis-word {
+    font-size: 8.5vw;
+  }
+
+  .kasis-page .kasis-edition {
+    font-size: 3.2vw;
+  }
+
+  .kasis-page .kasis-motto {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 950px) {
+  .kasis-page .modern-menu {
+    background: #171913;
+    border-bottom: 1px solid #b08b6655;
+  }
+
+  .kasis-page .modern-dropdown > div,
+  .kasis-page .modern-event-submenu {
+    background: #211b17;
+  }
+
+  .kasis-page.kasis-2023-page .modern-menu {
+    background: #1c1012;
+  }
+}
+
+@media (max-width: 760px) {
+  .kasis-page .kasis-wrap {
+    width: calc(100% - 44px);
+  }
+
+  .kasis-page .kasis-hero {
+    padding-block: 20px 44px;
+  }
+
+  .kasis-page .events-breadcrumb {
+    margin-bottom: 26px;
+    font-size: 9px;
+  }
+
+  .kasis-page .kasis-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 38px;
+  }
+
+  .kasis-page .kasis-copy {
+    padding-block: 0;
+  }
+
+  .kasis-page .kasis-kicker {
+    margin-bottom: 18px;
+    font-size: 9px;
+    letter-spacing: 1.6px;
+  }
+
+  .kasis-page .kasis-word {
+    font-size: clamp(80px, 20vw, 130px);
+  }
+
+  .kasis-page .kasis-edition {
+    font-size: clamp(30px, 7vw, 45px);
+  }
+
+  .kasis-page .kasis-motto {
+    margin-top: 22px;
+    font-size: clamp(25px, 5vw, 32px);
+  }
+
+  .kasis-page .kasis-poster {
+    justify-self: start;
+    max-width: 460px;
+  }
+
+  .kasis-page .kasis-footer {
+    grid-template-columns: 1fr auto;
+    gap: 14px 24px;
+    padding-block: 24px;
+  }
+
+  .kasis-page .kasis-footer p {
+    grid-row: 2;
+    grid-column: 1 / -1;
+  }
+
+  .kasis-page .kasis-footer > a:last-child {
+    grid-row: 1;
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 360px) {
+  .kasis-page .kasis-wrap {
+    width: calc(100% - 36px);
+  }
+
+  .kasis-page .kasis-title {
+    column-gap: 12px;
+  }
+
+  .kasis-page .kasis-word {
+    font-size: 23vw;
+  }
+
+  .kasis-page .kasis-edition {
+    font-size: 28px;
+  }
+
+  .kasis-page .kasis-facts > div {
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .kasis-page .kasis-facts dd {
+    font-size: 13px;
+  }
+}

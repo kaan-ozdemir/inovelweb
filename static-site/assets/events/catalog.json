@@ -18,11 +18,15 @@
   {
     "slug": "kasis-2025",
     "title": "KASİS 2025",
+    "edition": "3",
     "category": "kasis",
     "label": "KASİS",
     "eventDate": "19 Aralık 2025",
+    "eventTime": "10.00",
     "year": "2025",
     "image": "wp-content/uploads/2026/02/SCR-20260210-piuw.jpeg",
+    "imageWidth": 760,
+    "imageHeight": 938,
     "venue": "DPÜ · İİBF Konferans Salonu",
     "description": "19 Aralık 2025’te KASİS’te sektör temsilcileri ve ilham veren konuşmacılarla bir araya geldik. Kariyer engellerini aşmak ve geleceğe birlikte bakmak üzerine konuştuk."
   },
@@ -35,7 +39,12 @@
     "year": "2025",
     "source": "https://inoveldpu.com/portfolio/inovel25/",
     "imageSource": "https://inoveldpu.com/wp-content/uploads/2025/10/SCR-20251002-jpvy.jpeg",
-    "image": "assets/events/inovel25.jpeg"
+    "image": "assets/events/inovel25.jpeg",
+    "imageWidth": 1422,
+    "imageHeight": 1416,
+    "eventDate": "10–11 Mayıs 2025",
+    "eventTime": "10.00",
+    "venue": "Hezar Dinari Kültür Merkezi"
   },
   {
     "slug": "inovel24",
@@ -46,7 +55,12 @@
     "year": "2024",
     "source": "https://inoveldpu.com/portfolio/inovel24/",
     "imageSource": "https://inoveldpu.com/wp-content/uploads/2024/05/1713961374849-removebg-preview.png",
-    "image": "assets/events/inovel24.png"
+    "image": "assets/events/inovel24.png",
+    "imageWidth": 500,
+    "imageHeight": 500,
+    "eventDate": "4–5 Mayıs 2024",
+    "eventTime": "10.00",
+    "venue": "Hezar Dinari Kültür Merkezi"
   },
   {
     "slug": "inovel-all-star",
@@ -90,7 +104,9 @@
     "year": "2022",
     "source": "https://inoveldpu.com/portfolio/gbs-etkinlik-6/",
     "imageSource": "https://inoveldpu.com/wp-content/uploads/2023/12/gbss6.png",
-    "image": "assets/events/gbs-etkinlik-6.png"
+    "image": "assets/events/gbs-etkinlik-6.png",
+    "imageWidth": 600,
+    "imageHeight": 400
   },
   {
     "slug": "gbs-etkinlik-5",
@@ -106,12 +122,17 @@
   {
     "slug": "kasis",
     "title": "Kasis",
+    "edition": "1",
     "category": "kasis",
     "label": "KASİS",
     "archiveDate": "15 Aralık 2023",
     "year": "2023",
     "source": "https://inoveldpu.com/portfolio/kasis/",
     "imageSource": "https://inoveldpu.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-13-at-14.27.38.jpeg",
-    "image": "assets/events/kasis.jpeg"
+    "image": "assets/events/kasis.jpeg",
+    "imageWidth": 1080,
+    "imageHeight": 1080,
+    "eventTime": "10.00",
+    "venue": "İİBF Amfi-2"
   }
 ]

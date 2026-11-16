@@ -382,6 +382,170 @@
   letter-spacing: 1px;
 }
 
+/* KASİS 2 carries its poster's charcoal, metallic gold and yellow diagonals. */
+.kasis-page.kasis-2024-page {
+  --inovel-ink: #f6f4ec;
+  --inovel-muted: #b8b7ae;
+  --inovel-paper: #101010;
+  --inovel-red: #f0c329;
+  --inovel-accent: #f0c329;
+  --inovel-line: #c7a93845;
+  --inovel-white: #1b1b18;
+  --inovel-surface: #1b1b18;
+  background:
+    linear-gradient(132deg, #e8bb2614 0 4%, transparent 4% 96%, #e8bb2612 96%),
+    radial-gradient(ellipse at 78% 25%, #d9b62612, transparent 50%),
+    #101010;
+}
+
+.kasis-page.kasis-2024-page ::selection {
+  color: #101010;
+  background: #f0c329;
+}
+
+.kasis-page.kasis-2024-page .modern-brand small,
+.kasis-page.kasis-2024-page .modern-platform-link > small,
+.kasis-page.kasis-2024-page .events-breadcrumb,
+.kasis-page.kasis-2024-page .kasis-facts dt,
+.kasis-page.kasis-2024-page .kasis-status,
+.kasis-page.kasis-2024-page .kasis-poster figcaption a,
+.kasis-page.kasis-2024-page .kasis-footer p {
+  color: #b8b7ae;
+}
+
+.kasis-page.kasis-2024-page .modern-brand .brand-dot,
+.kasis-page.kasis-2024-page .kasis-kicker,
+.kasis-page.kasis-2024-page .kasis-edition,
+.kasis-page.kasis-2024-page .kasis-link,
+.kasis-page.kasis-2024-page .kasis-footer-brand {
+  color: #f0c329;
+}
+
+.kasis-page.kasis-2024-page .modern-menu > a,
+.kasis-page.kasis-2024-page .modern-dropdown summary,
+.kasis-page.kasis-2024-page .modern-event-toggle,
+.kasis-page.kasis-2024-page .modern-dropdown > div > a,
+.kasis-page.kasis-2024-page .modern-event-submenu > a {
+  color: #f6f4ec !important;
+}
+
+.kasis-page.kasis-2024-page .modern-menu > a:hover,
+.kasis-page.kasis-2024-page .modern-dropdown summary:hover,
+.kasis-page.kasis-2024-page .modern-event-toggle:hover,
+.kasis-page.kasis-2024-page .modern-dropdown > div > a:hover,
+.kasis-page.kasis-2024-page .modern-event-submenu > a:hover {
+  color: #f0c329 !important;
+}
+
+.kasis-page.kasis-2024-page .modern-menu .modern-contact,
+.kasis-page.kasis-2024-page .modern-skip {
+  color: #101010 !important;
+  background: #f0c329;
+  border-color: #f0c329;
+}
+
+.kasis-page.kasis-2024-page .modern-menu .modern-contact:hover {
+  color: #101010 !important;
+  background: #ffdb5a;
+  border-color: #ffdb5a;
+}
+
+.kasis-page.kasis-2024-page .modern-dropdown > div,
+.kasis-page.kasis-2024-page .modern-event-submenu {
+  background: #1b1b18;
+  border-color: #c7a93855;
+  box-shadow: 0 16px 40px #00000066;
+}
+
+.kasis-page.kasis-2024-page .modern-dropdown > div > a:hover,
+.kasis-page.kasis-2024-page .modern-event-submenu > a:hover {
+  background: #34301e;
+}
+
+.kasis-page.kasis-2024-page .modern-header .modern-menu-toggle {
+  color: #f6f4ec;
+  border-color: #c7a93866;
+}
+
+.kasis-page.kasis-2024-page :is(a, button, summary):focus-visible {
+  outline-color: #ffdb5a;
+}
+
+.kasis-page.kasis-2024-page .events-breadcrumb [aria-current],
+.kasis-page.kasis-2024-page .events-breadcrumb a:hover,
+.kasis-page.kasis-2024-page .kasis-poster figcaption a:hover,
+.kasis-page.kasis-2024-page .kasis-footer > a:hover {
+  color: #ffdb5a;
+}
+
+.kasis-page.kasis-2024-page .kasis-kicker::before {
+  height: 3px;
+  background: #f0c329;
+  transform: skewX(-35deg);
+}
+
+.kasis-page.kasis-2024-page .kasis-title {
+  font-family: var(--inovel-display);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.kasis-page.kasis-2024-page .kasis-word {
+  color: #f0c329;
+  background: linear-gradient(155deg, #fff2a6 3%, #f7d14e 25%, #bb8615 48%, #f6cd3d 70%, #ffeba2 95%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 0.6px #d5ccaa;
+  filter: drop-shadow(2px 3px 0 #706f68) drop-shadow(2px 5px 0 #030303);
+  text-shadow: none;
+}
+
+.kasis-page.kasis-2024-page .kasis-edition {
+  letter-spacing: 1px;
+}
+
+.kasis-page.kasis-2024-page .kasis-motto {
+  color: #f6f4ec;
+  font-family: var(--inovel-font);
+  font-weight: 500;
+  letter-spacing: -0.8px;
+}
+
+.kasis-page.kasis-2024-page .kasis-description {
+  color: #c7c6bd;
+}
+
+.kasis-page.kasis-2024-page .kasis-facts,
+.kasis-page.kasis-2024-page .kasis-facts > div,
+.kasis-page.kasis-2024-page .kasis-footer {
+  border-color: #c7a93845;
+}
+
+.kasis-page.kasis-2024-page .kasis-facts dd,
+.kasis-page.kasis-2024-page .kasis-footer > a:last-child {
+  color: #f6f4ec;
+}
+
+.kasis-page.kasis-2024-page .kasis-link {
+  border-color: #c7a93888;
+}
+
+.kasis-page.kasis-2024-page .kasis-link:hover {
+  color: #ffdb5a;
+  border-color: #ffdb5a;
+}
+
+.kasis-page.kasis-2024-page .kasis-poster > a {
+  background: #151515;
+  border-color: #bfa33980;
+  box-shadow: 0 24px 70px #00000080;
+}
+
+.kasis-page.kasis-2024-page .kasis-footer-brand {
+  font-family: var(--inovel-display);
+  letter-spacing: 0.6px;
+}
+
 @media (max-width: 1100px) {
   .kasis-page .kasis-wrap {
     width: calc(100% - 72px);
@@ -421,6 +585,11 @@
 
   .kasis-page.kasis-2023-page .modern-menu {
     background: #1c1012;
+  }
+
+  .kasis-page.kasis-2024-page .modern-menu {
+    background: #151512;
+    border-color: #c7a93855;
   }
 }
 
@@ -512,5 +681,17 @@
 
   .kasis-page .kasis-facts dd {
     font-size: 13px;
+  }
+}
+
+@media (forced-colors: active) {
+  .kasis-page .kasis-title .kasis-word,
+  .kasis-page .kasis-title .kasis-edition {
+    color: CanvasText;
+    background: none;
+    -webkit-text-fill-color: CanvasText;
+    -webkit-text-stroke: 0;
+    text-shadow: none;
+    filter: none;
   }
 }

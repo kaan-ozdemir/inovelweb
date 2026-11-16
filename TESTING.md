@@ -18,8 +18,9 @@ Node.js bağımlılıklarını `npm install` ile kurun. Yerel site sunucusu
   Türkçe karakterlerle aramayı, boş sonucu ve JavaScript olmadan içeriğe erişimi denetler.
 - `npm run test:faq`: özgün soru ve cevapları, aç/kapat düğmesini, Türkçe
   karakterlerle soru/cevap aramasını, boş sonucu ve kategori geçişlerini denetler.
-- `npm run test:events`: on yerel etkinlik kaydını, afişleri, kategori
-  içeriklerini, tarih etiketlerini, aramayı ve yıl filtresini denetler.
+- `npm run test:events`: on bir yerel etkinlik kaydını, afişleri, dört konuşmacı
+  afişini ve isim listesini, kategori içeriklerini, tarih etiketlerini, aramayı
+  ve yıl filtresini denetler.
 - `npm run test:content`: dergi sayıları ve yerel PDF dosyalarını, Spotify
   bağlantılarını, blog metnini ve içerik türü/yıl/arama filtrelerini denetler.
 - `npm run test:gallery`: on iki fotoğrafın korunmasını, HEIC için JPEG kopyasını,

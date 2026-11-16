@@ -17,7 +17,7 @@
   },
   {
     "slug": "kasis-2025",
-    "title": "KASİS 2025",
+    "title": "KASİS 3",
     "edition": "3",
     "category": "kasis",
     "label": "KASİS",
@@ -29,6 +29,35 @@
     "imageHeight": 938,
     "venue": "DPÜ · İİBF Konferans Salonu",
     "description": "19 Aralık 2025’te KASİS’te sektör temsilcileri ve ilham veren konuşmacılarla bir araya geldik. Kariyer engellerini aşmak ve geleceğe birlikte bakmak üzerine konuştuk."
+  },
+  {
+    "slug": "kasis-2",
+    "title": "KASİS 2",
+    "edition": "2",
+    "category": "kasis",
+    "label": "KASİS",
+    "year": "2024",
+    "eventDate": "20 Aralık 2024",
+    "eventTime": "10.00",
+    "venue": "İİBF Amfi-II",
+    "image": "assets/events/kasis-2.jpeg",
+    "imageAlt": "KASİS 2 etkinlik afişi: 20 Aralık 2024, saat 10.00, İİBF Amfi-II",
+    "imageWidth": 1440,
+    "imageHeight": 1440,
+    "description": "20 Aralık 2024’te İİBF Amfi-II’de gerçekleştirdiğimiz KASİS 2 buluşmasının afişi ve etkinlik bilgileri.",
+    "speakerPoster": {
+      "image": "assets/events/kasis-2-speakers.jpg",
+      "width": 1440,
+      "height": 1440
+    },
+    "speakers": [
+      { "name": "Ümit AKALIN", "company": "Samsung", "role": "Kıdemli Satış Müdürü" },
+      { "name": "Umut FIÇICIOĞLU", "company": "Arçelik", "role": "Kıdemli Kategori Müdürü" },
+      { "name": "Ebru ALIŞIK", "company": "PepsiCo", "role": "Kurumsal Denetim Direktörü" },
+      { "name": "Oğuzhan GÖZÜBÜYÜK", "company": "BluTV", "role": "Müşteri İlişkileri Müdürü" },
+      { "name": "Mustafa Can BAŞARILI", "company": "hepsiJET", "role": "Akdeniz Bölge Müdürü" },
+      { "name": "Mehmet AKSAKALLI", "company": "TOFAŞ", "role": "Kıdemli Lojistik Operasyonları Yöneticisi" }
+    ]
   },
   {
     "slug": "inovel25",
@@ -44,7 +73,24 @@
     "imageHeight": 1416,
     "eventDate": "10–11 Mayıs 2025",
     "eventTime": "10.00",
-    "venue": "Hezar Dinari Kültür Merkezi"
+    "venue": "Hezar Dinari Kültür Merkezi",
+    "speakerPoster": {
+      "image": "assets/events/inovel25-speakers.jpg",
+      "width": 1440,
+      "height": 1440
+    },
+    "speakers": [
+      { "name": "Muhammed BİRAL", "company": "Turkish Aerospace", "role": "İş Veren Markası Şefi" },
+      { "name": "Engin DALMAN", "company": "Turkcell", "role": "Kıdemli Satıcı Yöneticisi" },
+      { "name": "Batuhan YILMAZ", "role": "Sihirbaz" },
+      { "name": "Barış METE", "company": "Amazon", "role": "Tedarik Zinciri ve Satınalma Yöneticisi" },
+      { "name": "C. Cenk KATIRCIOĞLU", "company": "MediaMarkt", "role": "Güvenlik ve İş Sürekliliği Müdürü" },
+      { "name": "Erol YÜCEL", "company": "HAVELSAN", "role": "Takım Strateji Lideri" },
+      { "name": "Volkan BABAOĞLU", "company": "Xiaomi", "role": "Satış ve Pazarlama Yöneticisi" },
+      { "name": "Umut OĞUZ", "role": "Oyuncu" },
+      { "name": "Musa ÖZCAN", "company": "ASELSAN", "role": "Dijital Dönüşüm Yöneticisi" }
+    ],
+    "guestCompanies": ["Garanti BBVA"]
   },
   {
     "slug": "inovel24",
@@ -60,7 +106,24 @@
     "imageHeight": 500,
     "eventDate": "4–5 Mayıs 2024",
     "eventTime": "10.00",
-    "venue": "Hezar Dinari Kültür Merkezi"
+    "venue": "Hezar Dinari Kültür Merkezi",
+    "speakerPoster": {
+      "image": "assets/events/inovel24-speakers.jpg",
+      "width": 1440,
+      "height": 1440
+    },
+    "speakers": [
+      { "name": "Kaan ADIGÜZEL", "company": "Exxen", "role": "Customer Success Manager" },
+      { "name": "Nergiz ÇAVUŞOĞLU", "company": "Türk Telekom", "role": "Bursa Regional Human Resources Manager" },
+      { "name": "Aykut ELMAS", "role": "Influencer" },
+      { "name": "Serpil AKKÖSE", "company": "Atasun Optik", "role": "IT Business Solutions Manager" },
+      { "name": "İzzet KAHRAMAN", "company": "Kia", "role": "Technical Training Manager" },
+      { "name": "Hüseyin BAŞOĞUL", "company": "Taze Mühendis · Tazeakademi.com · İşler Kitabevleri", "role": "Kurucu · Kurucu · Sosyal Medya Koordinatörü" },
+      { "name": "Orhan GENÇ", "company": "Siemens", "role": "Sales and Marketing Manager" },
+      { "name": "Bürge ÖZTÜRK", "company": "HAVELSAN", "role": "Innovation and Entrepreneurship Team Leader" },
+      { "name": "Ali Murathan DİKEL", "company": "Hasbro Türkiye", "role": "Head of Marketing" },
+      { "name": "Olcay AVCI", "company": "Daikin", "role": "ESG Sales Deputy General Manager" }
+    ]
   },
   {
     "slug": "inovel-all-star",
@@ -71,7 +134,11 @@
     "year": "2023",
     "source": "https://inoveldpu.com/portfolio/inovel-all-star/",
     "imageSource": "https://inoveldpu.com/wp-content/uploads/2023/12/e8b430cb0d45f7b9a34f7c5dc8b6a601_fit-1.png",
-    "image": "assets/events/inovel-all-star.png"
+    "image": "assets/events/inovel-all-star.png",
+    "imageWidth": 1080,
+    "imageHeight": 1080,
+    "eventDate": "8–9 Mayıs 2023",
+    "venue": "Hezar Dinari Kültür Merkezi"
   },
   {
     "slug": "inovel-etkinlik-2022",
@@ -121,11 +188,12 @@
   },
   {
     "slug": "kasis",
-    "title": "Kasis",
+    "title": "KASİS 1",
     "edition": "1",
     "category": "kasis",
     "label": "KASİS",
     "archiveDate": "15 Aralık 2023",
+    "eventDate": "15 Aralık 2023",
     "year": "2023",
     "source": "https://inoveldpu.com/portfolio/kasis/",
     "imageSource": "https://inoveldpu.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-13-at-14.27.38.jpeg",
@@ -133,6 +201,18 @@
     "imageWidth": 1080,
     "imageHeight": 1080,
     "eventTime": "10.00",
-    "venue": "İİBF Amfi-2"
+    "venue": "İİBF Amfi-2",
+    "speakerPoster": {
+      "image": "assets/events/kasis-1-speakers.jpg",
+      "width": 1080,
+      "height": 1080
+    },
+    "speakers": [
+      { "name": "Tahir Enes ADAK", "company": "Casper", "role": "Research & Development Manager" },
+      { "name": "Umut AKGÜL", "company": "ikas", "role": "Business Development Manager" },
+      { "name": "Turan YURDAKUL", "company": "Yandex Ads", "role": "Senior Business Development Manager" },
+      { "name": "İbrahim BOYLU", "company": "Škoda", "role": "Business Development Unit Manager" },
+      { "name": "Tarık SAYDIRAN", "company": "Migros-Up", "role": "Startup Engagement Manager" }
+    ]
   }
 ]

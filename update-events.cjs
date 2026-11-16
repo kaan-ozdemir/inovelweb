@@ -31,6 +31,7 @@ function save(file,html){
   const backup='backups/events-'+file.replaceAll('/','-');
   if(fs.existsSync(destination)&&!fs.existsSync(backup))fs.copyFileSync(destination,backup);
   let finalized=require('./navigation-shared.cjs').finalizePage(html);
+  if(html.includes('class="event-speakers '))finalized=finalized.replace('</head>','<link rel="stylesheet" href="../../assets/event-speakers.css">\n</head>');
   if(file==='etkinlikler/inovel26/index.html')finalized=finalized.replace('</head>','<link rel="stylesheet" href="../../assets/inovel26.css">\n</head>');
   if(html.includes('kasis-page'))finalized=finalized.replace('</head>','<link rel="stylesheet" href="../../assets/kasis.css">\n</head>');
   if(html.includes('poster-event-page'))finalized=finalized.replace('</head>','<link rel="stylesheet" href="../../assets/poster-events.css">\n</head>');
@@ -38,6 +39,32 @@ function save(file,html){
 }
 function imageAlt(record){return esc(record.imageAlt||record.title+' etkinlik afişi');}
 function detailTitle(record){return record.category==='kasis'?`KASİS ${record.edition}`:record.title;}
+function speakerSection(record,prefix){
+  if(!record.speakerPoster)return '';
+  const title=detailTitle(record);
+  const poster=record.speakerPoster;
+  const posterLink=prefix+poster.image;
+  const wrap=record.category==='kasis'?'kasis-wrap':'poster-event-wrap';
+  const speakerItems=(record.speakers||[]).map(speaker=>`<li class="event-speaker"><h3 class="event-speaker-name">${esc(speaker.name)}</h3>${speaker.company?`<p class="event-speaker-company">${esc(speaker.company)}</p>`:''}${speaker.role?`<p class="event-speaker-role">${esc(speaker.role)}</p>`:''}</li>`);
+  speakerItems.push(...(record.guestCompanies||[]).map(company=>`<li class="event-speaker event-speaker-guest"><h3 class="event-speaker-name">${esc(company)}</h3><p class="event-speaker-role">Konuk kurum</p></li>`));
+  return `<section class="event-speakers ${wrap}" id="konusmacilar" aria-labelledby="event-speakers-title">
+  <header class="event-speakers-heading">
+    <p class="event-speakers-kicker">${esc(title)}</p>
+    <h2 id="event-speakers-title">Konuşmacılar</h2>
+  </header>
+  <div class="event-speakers-layout">
+    <figure class="event-speakers-poster">
+      <a href="${posterLink}" aria-label="${esc(title)} konuşmacı afişini tam boy aç">
+        <img src="${posterLink}" alt="${esc(title)} konuşmacı afişi" width="${poster.width}" height="${poster.height}" loading="lazy" decoding="async">
+      </a>
+      <figcaption><a href="${posterLink}">Konuşmacı afişini görüntüle ${arrow}</a></figcaption>
+    </figure>
+    <ul class="event-speakers-list" role="list">
+      ${speakerItems.join('\n      ')}
+    </ul>
+  </div>
+</section>`;
+}
 function dateLabel(record){return record.detailsPending?'Detaylar yakında':record.eventDate?'Etkinlik tarihi: '+esc(record.eventDate):'Arşiv kaydı: '+esc(record.archiveDate);}
 function eventFacts(record){
   const rows=[{label:record.detailsPending?'TARİH':record.eventDate?'ETKİNLİK TARİHİ':'ARŞİV KAYDI',value:record.detailsPending?'Henüz eklenmedi':record.eventDate||record.archiveDate}];
@@ -107,8 +134,8 @@ function kasisContent(record,prefix){
         <div><dt>${record.eventDate?'Tarih':'ARŞİV KAYDI'}</dt><dd>${esc(record.eventDate||record.archiveDate)}</dd></div>
         <div><dt>Saat</dt><dd>${esc(record.eventTime||'Saat bilgisi paylaşılmadı')}</dd></div>
         <div><dt>Yer</dt><dd>${esc(record.venue||'Yer bilgisi paylaşılmadı')}</dd></div>
-      </dl><p class="kasis-status">Bu etkinlik sona erdi.</p>
-      ${record.source?`<p><a class="kasis-link" href="${esc(record.source)}" target="_blank" rel="noopener noreferrer">Özgün arşiv sayfası ${arrow}</a></p>`:''}
+      </dl><p class="kasis-status">Bu etkinlik sona erdi.</p>${record.source?`\n      <p><a class="kasis-link" href="${esc(record.source)}" target="_blank" rel="noopener noreferrer">Özgün arşiv sayfası ${arrow}</a></p>`:''}
+      ${record.speakerPoster?'<p><a class="kasis-link" href="#konusmacilar">Konuşmacılar <span aria-hidden="true">↓</span></a></p>':''}
       <a class="kasis-link" href="${prefix}portfolios/kasis-etkinlikler/index.html"><span aria-hidden="true">←</span> Diğer KASİS etkinlikleri</a>
     </div>
     <figure class="kasis-poster">
@@ -130,6 +157,7 @@ function kasisFooter(prefix){
 const posterThemes={
   inovel25:{className:'inovel25-page',word:'İNOVEL',number:'25.',color:'#171113',brand:'İNOVEL25',motto:'Her şey senin için.<br>Çünkü sen buna değersin.'},
   inovel24:{className:'inovel24-page',word:'İNOVEL',number:'24.',color:'#031b2b',brand:'İNOVEL24',motto:'Her şey senin için.<br>Çünkü sen buna değersin.'},
+  'inovel-all-star':{className:'allstar-page',word:'İNOVEL',number:'ALL STAR',color:'#111315',brand:'İNOVEL ALL STAR',motto:'Her şey senin için.<br>Çünkü sen buna değersin.'},
   'gbs-etkinlik-6':{className:'gbs6-page',word:'GBS',number:'’6',color:'#04182f',brand:'GBS’6',motto:'GBS’nin altıncı buluşması.'}
 };
 function posterEventContent(record,category,theme,prefix){
@@ -152,6 +180,7 @@ function posterEventContent(record,category,theme,prefix){
       </dl>
       <p class="poster-event-status">Bu etkinlik sona erdi.</p>
       <div class="poster-event-links">
+        ${record.speakerPoster?'<a class="poster-event-link" href="#konusmacilar">Konuşmacılar <span aria-hidden="true">↓</span></a>':''}
         ${record.source?`<a class="poster-event-link" href="${esc(record.source)}" target="_blank" rel="noopener noreferrer">Özgün arşiv sayfası ${arrow}</a>`:''}
         <a class="poster-event-link" href="${prefix}${category.file}"><span aria-hidden="true">←</span> Diğer ${esc(record.label)} etkinlikleri</a>
       </div>
@@ -192,22 +221,22 @@ for(const record of records.filter(record=>!selectedSlugs||selectedSlugs.has(rec
    continue;
  }
  if(record.category==='kasis'){
-   save(file,layout(file,detailTitle(record),prefix=>kasisContent(record,prefix),{
-     themeClass:'kasis-page kasis-detail-page'+(record.slug==='kasis'?' kasis-2023-page':''),
+   save(file,layout(file,detailTitle(record),prefix=>kasisContent(record,prefix)+speakerSection(record,prefix),{
+     themeClass:'kasis-page kasis-detail-page'+(record.edition==='1'?' kasis-2023-page':record.edition==='2'?' kasis-2024-page':''),
      archiveScript:false,
-     themeColor:record.slug==='kasis'?'#16080b':'#101713',
-     description:record.slug==='kasis'?'KASİS 1 · Kariyer adımların seni ileriye sürüklesin. Etkinlik afişi ve arşiv bilgileri.':'KASİS 3 · 19 Aralık 2025, saat 10.00 · DPÜ İİBF Konferans Salonu. Kariyer adımların seni ileriye sürüklesin.',
+     themeColor:record.edition==='1'?'#16080b':record.edition==='2'?'#11120c':'#101713',
+     description:record.eventDate?[detailTitle(record),record.eventDate+(record.eventTime?`, saat ${record.eventTime}`:''),record.venue].filter(Boolean).join(' · ')+'. Kariyer adımların seni ileriye sürüklesin.':`${detailTitle(record)} · Kariyer adımların seni ileriye sürüklesin. Etkinlik afişi ve arşiv bilgileri.`,
      footer:kasisFooter
    }));
    continue;
  }
  const theme=posterThemes[record.slug];
  if(theme){
-   save(file,layout(file,record.title,prefix=>posterEventContent(record,category,theme,prefix),{
+   save(file,layout(file,record.title,prefix=>posterEventContent(record,category,theme,prefix)+speakerSection(record,prefix),{
      themeClass:`poster-event-page ${theme.className}`,
      archiveScript:false,
      themeColor:theme.color,
-     description:record.eventDate?`${record.title} · ${record.eventDate}, saat ${record.eventTime} · ${record.venue}.`:`${record.title} etkinlik görseli ve arşiv bilgileri.`,
+     description:record.eventDate?[record.title,record.eventDate+(record.eventTime?`, saat ${record.eventTime}`:''),record.venue].filter(Boolean).join(' · ')+'.':`${record.title} etkinlik görseli ve arşiv bilgileri.`,
      footer:prefix=>posterEventFooter(category,theme,prefix)
    }));
    continue;

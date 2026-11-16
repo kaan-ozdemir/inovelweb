@@ -1,0 +1,169 @@
+/* Homepage introduction; keep the shared editorial sections unchanged. */
+.direction-editorial .zine-intro-story {
+  display: block;
+  padding-block: 76px 88px;
+}
+
+.zine-intro-story .zine-intro-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.zine-intro-story .zine-section-tag {
+  margin: 0;
+  color: var(--inovel-ink);
+}
+
+.zine-intro-story .zine-intro-location,
+.zine-intro-story .zine-intro-since {
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 1.5px;
+  line-height: 1.6;
+}
+
+.zine-intro-story .zine-intro-location {
+  color: #aaa8a2;
+  text-align: right;
+}
+
+.zine-intro-story .zine-intro-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 76px);
+}
+
+.zine-intro-story .zine-intro-visual {
+  min-width: 0;
+  margin: 0;
+}
+
+.zine-intro-story .zine-intro-visual > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 52%;
+}
+
+.zine-intro-story figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  border-bottom: 1px solid #383838;
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: 1px;
+  color: #aaa8a2;
+  padding-block: 4px;
+}
+
+.zine-intro-story figcaption a {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 44px;
+  color: var(--inovel-ink);
+}
+
+.zine-intro-story figcaption a > span {
+  color: var(--inovel-red);
+  font-size: 20px;
+}
+
+.zine-intro-story .zine-intro-copy {
+  min-width: 0;
+  padding-block: 12px 28px;
+}
+
+.zine-intro-story .zine-intro-since {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 24px;
+  color: #aaa8a2;
+}
+
+.zine-intro-story .zine-intro-since::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--inovel-red);
+}
+
+.direction-editorial .zine-intro-story h2 {
+  margin: 0;
+  font-size: clamp(38px, 5.2vw, 80px);
+  letter-spacing: -1px;
+  line-height: 1.04;
+}
+
+.direction-editorial .zine-intro-story h2 > span {
+  color: var(--inovel-red);
+}
+
+.zine-intro-story .zine-intro-description {
+  max-width: 440px;
+  margin: 26px 0 30px;
+  color: #bcbab4;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.zine-intro-story .zine-inline-link {
+  min-height: 48px;
+  min-width: 180px;
+  margin: 0;
+  padding-block: 12px;
+  border-bottom-color: var(--inovel-red);
+  font-size: 11px;
+}
+
+.zine-intro-story a:hover {
+  color: #ff8275;
+}
+
+@media (max-width: 1100px) {
+  .zine-intro-story .zine-intro-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 760px) {
+  .direction-editorial .zine-intro-story {
+    padding-block: 48px 56px;
+  }
+
+  .zine-intro-story .zine-intro-heading {
+    margin-bottom: 24px;
+  }
+
+  .zine-intro-story .zine-intro-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .zine-intro-story .zine-intro-copy {
+    padding: 0;
+  }
+
+  .zine-intro-story .zine-intro-since {
+    margin-bottom: 16px;
+  }
+
+  .direction-editorial .zine-intro-story h2 {
+    font-size: clamp(38px, 8.5vw, 62px);
+    letter-spacing: -.6px;
+  }
+
+  .zine-intro-story .zine-intro-description {
+    margin-block: 20px 18px;
+  }
+}

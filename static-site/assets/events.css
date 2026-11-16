@@ -89,3 +89,34 @@
 .direction-editorial .event-info-panel h2{font:650 21px/1.4 var(--inovel-font);letter-spacing:-.4px;margin:0 0 16px}
 .event-info-panel .event-participation{font-size:12px;line-height:1.8;color:#bcbab4;margin:16px 0 0}
 .event-info-panel .zine-button{margin-top:16px}
+
+/* Keep the archive controls and card text usable on narrow touch screens. */
+@media(max-width:550px){
+ .events-tools{flex-direction:column;align-items:stretch;gap:16px}
+ .events-tools>label{min-width:0}
+ .events-tools>.events-year{flex:auto}
+ .events-tools input,.events-tools select{font-size:16px;min-height:48px}
+ .events-tools>label>span{font-size:9px}
+ .events-categories>a{display:inline-flex;align-items:center;min-height:44px;font-size:12px}
+ .events-breadcrumb{gap:4px 11px}
+ .events-breadcrumb>a{display:inline-flex;align-items:center;min-height:44px}
+ .events-status{font-size:11px}
+ .events-page .event-card h3{font-size:16px;overflow-wrap:anywhere}
+ .event-card-heading>span{flex-shrink:0}
+ .event-card a>p{font-size:11px}
+ .event-card-image>span{font-size:9px}
+ .events-reset{min-height:44px;align-items:center;font-size:12px}
+ .events-tools-note summary{min-height:44px;align-content:center;font-size:13px}
+ .events-tools-note details>p{font-size:13px}
+ .events-tools-note details>p a{display:inline-flex;align-items:center;min-height:44px}
+ .event-detail-grid>*,.events-hero-grid>*{min-width:0}
+ .event-detail-copy dd{overflow-wrap:anywhere}
+ .event-info-panel{padding:18px}
+ .events-page .event-detail-copy h1{font-size:clamp(42px,11vw,55px)}
+}
+@media(max-width:380px){
+ .events-grid{grid-template-columns:1fr}
+ .event-card-image{aspect-ratio:4/4.5}
+ .events-page .event-card h3{font-size:19px}
+ .event-card a>p{font-size:12px}
+}

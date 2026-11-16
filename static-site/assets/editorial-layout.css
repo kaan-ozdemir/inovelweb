@@ -181,3 +181,19 @@
  .modern-home.direction-editorial .zine-hero-content{padding:120px 22px 45px}
  .modern-home.direction-editorial .zine-hero-photo{object-position:center 65%}
 }
+
+/* Phone layouts: readable copy, complete posters and shrinkable text tracks. */
+@media(max-width:700px){
+ .direction-editorial .zine-hero-followup>p,.direction-editorial .zine-intro-bottom p,.direction-editorial .zine-event-info>p:not(.zine-event-name),.direction-editorial .zine-join-copy>p{font-size:14px}
+ .direction-editorial .zine-editorial h2{font-size:clamp(36px,10.5vw,64px);overflow-wrap:anywhere}
+ .direction-editorial .zine-publication{grid-template-columns:24px minmax(0,1fr) 28px}
+ .direction-editorial .zine-publication>div{min-width:0}
+ .direction-editorial .zine-publication h3{font-size:clamp(28px,8.5vw,39px);overflow-wrap:anywhere}
+ .direction-editorial .zine-publication>p{font-size:13px}
+ .direction-editorial .zine-section-head{flex-wrap:wrap;gap:8px 16px}
+ .direction-editorial .zine-section-head .zine-inline-link{font-size:10px}
+ .direction-editorial .zine-poster>span{position:static;min-height:48px;padding:14px 16px;gap:16px}
+ .direction-editorial .zine-event-facts>div{grid-template-columns:56px minmax(0,1fr);gap:16px}
+ .direction-editorial .zine-event-facts dd{min-width:0;overflow-wrap:anywhere}
+ .direction-editorial .zine-join-copy>.zine-inline-link{max-width:100%;white-space:normal;font-size:11px;gap:16px}
+}

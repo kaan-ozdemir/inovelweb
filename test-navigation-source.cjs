@@ -12,7 +12,7 @@ for(const file of walk('static-site').filter(file=>file.endsWith('.html'))){
  const dom=new JSDOM(output),d=dom.window.document,header=d.querySelector('.modern-header');
  assert.equal(header.querySelectorAll('.modern-blog-link').length,0);
  assert.equal(header.querySelectorAll('.modern-event-toggle').length,1);
- assert.deepEqual([...header.querySelectorAll('.modern-event-submenu>a')].map(a=>a.firstChild.textContent.trim()),['İnovel','GBS','KASİS','Etkinlik ekranı']);
+ assert.deepEqual([...header.querySelectorAll('.modern-event-submenu>a')].map(a=>a.firstChild.textContent.trim()),['İNOVEL','GBS','KASİS','Etkinlik ekranı'],'Event submenu uses the uppercase İNOVEL label');
  assert.ok([...header.querySelectorAll('.modern-dropdown a')].some(a=>a.textContent==='Blog'));
  assert.ok([...header.querySelectorAll('.modern-dropdown a')].some(a=>a.textContent==='Tüm içerikler'));
  const styles=d.querySelectorAll('link[href$="assets/navigation-repairs.css"]');
@@ -23,6 +23,7 @@ for(const file of walk('static-site').filter(file=>file.endsWith('.html'))){
 const old=fs.readFileSync('backups/about-before-redesign.html','utf8');
 const rebuilt=new JSDOM(finalizePage(old));
 assert.equal(rebuilt.window.document.querySelectorAll('.modern-event-toggle').length,1,'Legacy generator input receives the current menu');
+assert.equal(rebuilt.window.document.querySelector('.modern-event-submenu>a').textContent,'İNOVEL','Legacy menus also receive the uppercase label');
 rebuilt.window.close();
 assert.equal(finalizePage('<html><body>Plain page</body></html>'),'<html><body>Plain page</body></html>');
 console.log(checked+' shared headers: current menu ordering, Blog placement, relative styles, legacy regeneration and idempotence passed.');

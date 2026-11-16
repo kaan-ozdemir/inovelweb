@@ -10,13 +10,15 @@
     var active = 'all';
     function normalize(text) { return text.toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ı/g, 'i'); }
     function update() {
+      root.dataset.teamView = active;
       var query = normalize(input.value.trim());
       var people = new Set();
       groups.forEach(function (group) {
-        var included = active === 'all' || group.dataset.teamGroup === active;
+        var included = active === 'all' || active === 'leaders' || group.dataset.teamGroup === active;
         var visible = 0;
         group.querySelectorAll('[data-person]').forEach(function (person) {
-          var match = included && normalize(person.querySelector('.about-person-info').textContent).includes(query);
+          var roleMatches = active !== 'leaders' || person.dataset.teamRole === 'coordinator';
+          var match = included && roleMatches && normalize(person.querySelector('.about-person-info').textContent).includes(query);
           person.hidden = !match;
           if (match) {
             visible++;
@@ -24,8 +26,9 @@
           }
         });
         group.hidden = visible === 0;
+        group.querySelector('.about-group-heading>span').textContent = String(visible).padStart(2, '0') + (active === 'leaders' ? ' KOORDİNATÖR' : ' KİŞİ');
       });
-      status.textContent = people.size + ' ekip üyesi gösteriliyor';
+      status.textContent = people.size + (active === 'leaders' ? ' departman koordinatörü gösteriliyor' : ' ekip üyesi gösteriliyor');
       root.querySelector('.about-empty').hidden = people.size !== 0;
     }
     buttons.forEach(function (button) {
@@ -36,6 +39,12 @@
       });
     });
     input.addEventListener('input', update);
+    var reset = root.querySelector('.about-reset');
+    if (reset) reset.addEventListener('click', function () {
+      input.value = '';
+      update();
+      input.focus();
+    });
     root.querySelector('.about-team-tools').hidden = false;
     update();
   }

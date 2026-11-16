@@ -61,6 +61,21 @@
       }
     });
     menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', function () { closeMenu(false); }); });
+    // Do not reopen a stale mobile menu after rotating or resizing the screen.
+    if (window.matchMedia) {
+      var mobileLayout = window.matchMedia('(max-width: 950px)');
+      function resetMenuLayout() {
+        var focused = document.activeElement;
+        var focusWasInMenu = menu.contains(focused);
+        var focusedGroup = groups.find(function (group) { return group.contains(focused) && !group.querySelector('summary').contains(focused); });
+        var desktopFocus = eventSubmenu && eventSubmenu.contains(focused) ? eventToggle : focusedGroup ? focusedGroup.querySelector('summary') : focused === toggle ? menu.querySelector('[aria-current="page"],a,summary,button') : null;
+        closeMenu(false);
+        if (mobileLayout.matches && focusWasInMenu) toggle.focus();
+        else if (!mobileLayout.matches && desktopFocus) desktopFocus.focus();
+      }
+      if (mobileLayout.addEventListener) mobileLayout.addEventListener('change', resetMenuLayout);
+      else if (mobileLayout.addListener) mobileLayout.addListener(resetMenuLayout);
+    }
     // Highlight the current destination, including nested pages.
     function canonicalPath(path) { return path.replace(/\/index\.html$/i, '/'); }
     menu.querySelectorAll('a').forEach(function (link) {

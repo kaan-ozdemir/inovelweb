@@ -3,6 +3,9 @@ const fs = require('node:fs');
 const { JSDOM } = require('jsdom');
 async function check(file) {
   const dom = new JSDOM(fs.readFileSync(file,'utf8'), {url:'http://127.0.0.1:5500/'+file.replaceAll('\\','/'), runScripts:'outside-only', pretendToBeVisual:true});
+  let onLayoutChange;
+  const mobileLayout={matches:true,addEventListener(type,listener){if(type==='change')onLayoutChange=listener;}};
+  dom.window.matchMedia=()=>mobileLayout;
   dom.window.eval(fs.readFileSync('static-site/assets/modern-site.js','utf8'));
   await new Promise(resolve=>setTimeout(resolve,10));
   const doc=dom.window.document, header=doc.querySelector('.modern-header');
@@ -11,7 +14,7 @@ async function check(file) {
   assert.ok(doc.querySelector('#main-content'), 'Skip link has a destination');
   assert.equal(header.querySelector('.modern-blog-link'),null,'No standalone Blog link');
   assert.ok([...header.querySelectorAll('.modern-dropdown a')].some(a=>a.textContent==='Blog'&&a.href.endsWith('/static-site/blogs/index.html')),'Blog remains under Content');
-  assert.deepEqual([...header.querySelectorAll('.modern-event-submenu>a')].map(a=>a.firstChild.textContent.trim()),['İnovel','GBS','KASİS','Etkinlik ekranı']);
+  assert.deepEqual([...header.querySelectorAll('.modern-event-submenu>a')].map(a=>a.firstChild.textContent.trim()),['İNOVEL','GBS','KASİS','Etkinlik ekranı']);
   assert.ok(header.querySelector('.modern-platform-link').href.endsWith('/static-site/etkinlikler/index.html'),'Platform stays below the three event categories');
   const button=header.querySelector('.modern-menu-toggle');
   button.click();
@@ -52,7 +55,23 @@ async function check(file) {
   button.click();
   doc.body.click();
   assert.equal(button.getAttribute('aria-expanded'),'false','Outside click closes mobile menu');
+  button.click();
+  eventButton.click();
+  eventSubmenu.querySelector('a').focus();
+  mobileLayout.matches=false;
+  onLayoutChange();
+  assert.equal(button.getAttribute('aria-expanded'),'false','Switching to desktop clears the mobile menu state');
+  assert.equal(eventSubmenu.hidden,true,'Switching layout also closes nested menus');
+  assert.equal(doc.activeElement,eventButton,'Desktop layout returns hidden submenu focus to its trigger');
+  const menuLink=header.querySelector('.modern-menu a');
+  menuLink.focus();
+  mobileLayout.matches=true;
+  onLayoutChange();
+  assert.equal(doc.activeElement,button,'Switching to mobile moves hidden menu focus to the visible toggle');
+  mobileLayout.matches=false;
+  onLayoutChange();
+  assert.ok(header.querySelector('.modern-menu').contains(doc.activeElement),'Desktop layout moves focus from the hidden mobile toggle into the visible menu');
   assert.ok(header.querySelector('[aria-current="page"]') || !file.endsWith('static-site/index.html'));
   dom.window.close();
 }
-(async()=>{for(const file of ['static-site/index.html','static-site/galeri/index.html','static-site/etkinlikler/index.html','static-site/sayfalar/about/index.html'])await check(file);console.log('4 representative pages: shared header/footer, mobile toggle, Escape/focus, dropdowns and outside click passed.');})().catch(e=>{console.error(e);process.exitCode=1;});
+(async()=>{for(const file of ['static-site/index.html','static-site/galeri/index.html','static-site/etkinlikler/index.html','static-site/sayfalar/about/index.html'])await check(file);console.log('4 representative pages: shared header/footer, mobile toggle, Escape/focus, dropdowns, outside click and layout changes passed.');})().catch(e=>{console.error(e);process.exitCode=1;});

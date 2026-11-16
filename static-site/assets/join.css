@@ -49,7 +49,7 @@
 .join-membership-note>p{font-size:11px;line-height:1.9;color:#aaa8a2}
 .join-contact-copy>.zine-inline-link{font-size:8px}
 .join-form{border:1px solid #484743;background:#191917;padding:32px;min-width:0}
-.join-form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.join-form-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .join-form label{display:block;font-size:10px;line-height:1.6;font-weight:600;margin-bottom:21px;color:#d9d6ce}
 .join-form label>span{color:#ff8275;margin-left:4px}
 .join-form label>small{font-size:8px;font-weight:400;color:#aaa8a2;margin-left:10px}
@@ -93,3 +93,6 @@
 .join-membership-summary dt{font-size:10px;letter-spacing:1px;color:#ff8275;margin-bottom:5px}
 .join-membership-summary dd{margin:0;font-size:13px;line-height:1.8;color:#e3e0d9}
 .join-membership-summary>p{font-size:11px;line-height:1.7;color:#aaa8a2;margin-top:10px}
+@media(max-width:950px),(pointer:coarse){.join-form :is(input,select,textarea){font-size:16px}}
+@media(max-width:850px){.join-contact-copy>*{min-width:0}.join-mail{min-height:44px;overflow-wrap:anywhere}.join-draft-link{min-height:44px;max-width:100%}.join-page .zine-inline-link{max-width:100%;white-space:normal}.join-page :is(.zine-inline-link,.join-mail,.join-draft-link)>span{flex-shrink:0}}
+@media(max-width:550px){.join-breadcrumb>a{display:inline-flex;align-items:center;min-height:44px}.join-hero-grid>*{min-width:0}.join-department-list>a{grid-template-columns:23px minmax(0,1fr) 20px}.join-form-row{grid-template-columns:minmax(0,1fr)}.join-form :is(input,select,textarea){scroll-margin-block:110px 24px}}

@@ -14,7 +14,7 @@ const catalog=JSON.parse(fs.readFileSync('static-site/assets/events/catalog.json
  for(const record of catalog){
    const archiveCard=cards.find(card=>card.querySelector('a').getAttribute('href').includes('/'+record.slug+'/'));
    assert.equal(archiveCard.querySelector('h3').textContent,record.title);
-   if(record.slug==='inovel-all-star')assert.ok(archiveCard.textContent.includes(record.eventDate),'All Star archive uses both confirmed event days');
+   if(['inovel-all-star','inovel-etkinlik-2022','inovel-etkinlik-2021'].includes(record.slug))assert.ok(archiveCard.textContent.includes(record.eventDate),'Archive cards use both confirmed event days');
    assert.ok(fs.existsSync(path.join('static-site',record.image)));
    const detailPath=`static-site/etkinlikler/${record.slug}/index.html`;
    const detail=new JSDOM(fs.readFileSync(detailPath,'utf8'));
@@ -22,7 +22,7 @@ const catalog=JSON.parse(fs.readFileSync('static-site/assets/events/catalog.json
    const expectedTitle=record.category==='kasis'?'KASİS '+record.edition:record.title;
    assert.equal(heading.getAttribute('aria-label')||heading.textContent,expectedTitle);
    assert.doesNotMatch(detail.window.document.querySelector('meta[name="description"]').content,/\b(?:undefined|null)\b/,'Page descriptions omit unavailable event information');
-   const speakerCounts={kasis:5,'kasis-2':6,inovel25:9,inovel24:10};
+   const speakerCounts={kasis:5,'kasis-2':6,inovel25:9,inovel24:10,'inovel-etkinlik-2021':9,'inovel-etkinlik-2022':12,'inovel-all-star':9};
    if(Object.hasOwn(speakerCounts,record.slug)){
      const eventDocument=detail.window.document;
      const section=eventDocument.querySelector('#konusmacilar');
@@ -36,16 +36,26 @@ const catalog=JSON.parse(fs.readFileSync('static-site/assets/events/catalog.json
      assert.ok(fs.existsSync(posterPath),'Speaker poster resolves locally');
      assert.equal(speakerPoster.closest('a').getAttribute('href'),speakerPoster.getAttribute('src'),'Full-size speaker poster opens from the preview');
      assert.equal(speakerPoster.getAttribute('loading'),'lazy');
-     assert.equal(speakerPoster.getAttribute('width'),record.slug==='kasis'?'1080':'1440');
+     assert.equal(speakerPoster.getAttribute('width'),['kasis','inovel-etkinlik-2021'].includes(record.slug)?'1080':'1440');
      assert.equal(speakerPoster.getAttribute('height'),speakerPoster.getAttribute('width'));
-     const speakers=[...section.querySelectorAll('.event-speaker:not(.event-speaker-guest)')];
+     const speakers=[...section.querySelectorAll('.event-speaker:not(.event-speaker-guest):not(.event-speaker-workshop)')];
      assert.equal(speakers.length,speakerCounts[record.slug]);
      assert.deepEqual(speakers.map(speaker=>speaker.querySelector('h3').textContent),record.speakers.map(speaker=>speaker.name),'Names remain readable without JavaScript');
-     assert.ok(speakers.every(speaker=>speaker.querySelector('.event-speaker-role').textContent.trim()));
+     speakers.forEach((speaker,index)=>{
+       const role=speaker.querySelector('.event-speaker-role');
+       if(record.speakers[index].role){
+         assert.equal(role.textContent,record.speakers[index].role);
+       }else{
+         assert.equal(role,null,'A role is only displayed when it appears in the supplied speaker data');
+       }
+     });
+     if(record.slug==='inovel-etkinlik-2021'){
+       assert.equal(section.querySelectorAll('.event-speaker-workshop').length,0,'Removed workshop entries stay out of the event page');
+       assert.equal(record.workshops,undefined);
+     }
      if(record.slug==='inovel25'){
-       const guest=section.querySelector('.event-speaker-guest');
-       assert.equal(guest.querySelector('h3').textContent,'Garanti BBVA');
-       assert.equal(guest.querySelector('.event-speaker-role').textContent,'Konuk kurum','The unnamed poster guest is shown as a company');
+       assert.equal(section.querySelectorAll('.event-speaker-guest').length,0,'The removed guest company stays out of the event page');
+       assert.equal(record.guestCompanies,undefined);
      }
    }else{
      assert.ok(!detail.window.document.querySelector('.event-speakers'),'Other event details are preserved');
@@ -81,9 +91,9 @@ const catalog=JSON.parse(fs.readFileSync('static-site/assets/events/catalog.json
      }
      assert.ok(!eventDocument.querySelector('.events-cta'));
    }
-   if(['gbs-etkinlik-6','inovel25','inovel24','inovel-all-star'].includes(record.slug)){
+   if(['gbs-etkinlik-6','inovel25','inovel24','inovel-all-star','inovel-etkinlik-2022','inovel-etkinlik-2021'].includes(record.slug)){
      const eventDocument=detail.window.document;
-     const themeClasses={'gbs-etkinlik-6':'gbs6-page',inovel25:'inovel25-page',inovel24:'inovel24-page','inovel-all-star':'allstar-page'};
+     const themeClasses={'gbs-etkinlik-6':'gbs6-page',inovel25:'inovel25-page',inovel24:'inovel24-page','inovel-all-star':'allstar-page','inovel-etkinlik-2022':'inovel22-page','inovel-etkinlik-2021':'inovel21-page'};
      assert.ok(eventDocument.body.classList.contains(themeClasses[record.slug]));
      assert.equal(eventDocument.querySelector('link[rel="stylesheet"]:last-of-type').getAttribute('href'),'../../assets/poster-events.css','Event palette takes precedence over the shared styles');
      const poster=eventDocument.querySelector('.poster-event-art img');
@@ -98,10 +108,41 @@ const catalog=JSON.parse(fs.readFileSync('static-site/assets/events/catalog.json
        assert.match(eventDocument.querySelector('dl').textContent,/Yer bilgisi paylaşılmadı/);
      }else if(record.slug==='inovel-all-star'){
        assert.equal(record.eventDate,'8–9 Mayıs 2023','Both event days are shown on the poster');
+       assert.equal(record.eventTime,'10.30','The supplied speaker poster confirms the start time');
        assert.equal(record.venue,'Hezar Dinari Kültür Merkezi');
-       assert.match(eventDocument.querySelector('dl').textContent,/Saat bilgisi paylaşılmadı/,'The poster does not confirm a start time');
+       assert.ok(eventDocument.querySelector('dl').textContent.includes('10.30'));
        assert.equal(heading.querySelector('.poster-event-number').textContent,'ALL STAR');
        assert.equal(eventDocument.querySelector('meta[name="theme-color"]').content,'#111315');
+     }else if(['inovel-etkinlik-2022','inovel-etkinlik-2021'].includes(record.slug)){
+       const is2022=record.slug==='inovel-etkinlik-2022';
+       const expectedArchiveDate=is2022?'21 Mayıs 2022':'20 Mart 2021';
+       const expectedEventDate=is2022?'21–22 Mayıs 2022':'20–21 Mart 2021';
+       const expectedEventTime=is2022?'10.30':'12.00';
+       const expectedVenue=is2022?'Hezar Dinari Kültür Merkezi':'YouTube canlı yayını';
+       assert.equal(heading.getAttribute('aria-label'),record.title,'The original archive title remains accessible');
+       assert.equal(heading.querySelector('.poster-event-number').textContent.replace(/\s+/g,''),is2022?'’22':'’21');
+       assert.equal(record.archiveDate,expectedArchiveDate,'The original publication date is retained');
+       assert.equal(record.eventDate,expectedEventDate,'Both days are taken from the supplied poster');
+       assert.equal(record.eventTime,expectedEventTime);
+       assert.equal(record.venue,expectedVenue);
+       const facts=eventDocument.querySelector('dl');
+       assert.equal(facts.querySelector('dt').textContent,'Tarih','Confirmed event days replace the publication-date label');
+       assert.equal(facts.querySelector('dd').textContent,expectedEventDate);
+       assert.ok(facts.textContent.includes(expectedEventTime));
+       assert.ok(facts.textContent.includes(expectedVenue));
+       assert.doesNotMatch(facts.textContent,/bilgisi paylaşılmadı/);
+       assert.equal(eventDocument.querySelector('.poster-event-motto').textContent.replace(/\s+/g,''),'Herşeyseniniçin.Çünküsenbunadeğersin.','The existing club motto is retained');
+       if(is2022){
+         assert.equal(record.imageWidth,600);
+         assert.equal(record.imageHeight,400);
+         const originalPoster=fs.readFileSync(path.join('static-site',record.image));
+         assert.equal(originalPoster.readUInt32BE(16),600,'Landscape poster width matches the local image');
+         assert.equal(originalPoster.readUInt32BE(20),400,'Landscape poster height matches the local image');
+       }else{
+         assert.equal(record.image,'assets/events/inovel21-poster.jpg','The full supplied announcement is the main poster');
+         assert.equal(record.imageWidth,1440);
+         assert.equal(record.imageHeight,1440);
+       }
      }else{
        assert.equal(record.eventDate,record.slug==='inovel25'?'10–11 Mayıs 2025':'4–5 Mayıs 2024','Full event dates come from the poster');
        assert.equal(record.eventTime,'10.00');
@@ -189,5 +230,5 @@ const catalog=JSON.parse(fs.readFileSync('static-site/assets/events/catalog.json
  d.querySelector('.events-reset').click();assert.equal(visible().length,11);assert.equal(year.value,'all');assert.equal(d.activeElement,input);
  assert.equal(d.querySelectorAll('.modern-event-group').length,1,'Event menu is not duplicated');
  dom.window.close();
- console.log('Events: 11 records/details, 4 speaker posters and 30 named speakers, KASIS 1/2/3 facts, 4 poster themes, 3 general categories, no-JS content, search and year filters passed.');
+ console.log('Events: 11 records/details, 7 speaker posters and 60 named speakers, confirmed 2021/2022/All Star event facts, KASIS 1/2/3 facts, 6 poster themes, 3 general categories, no-JS content, search and year filters passed.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

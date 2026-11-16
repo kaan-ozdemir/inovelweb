@@ -57,6 +57,35 @@
     #071a32;
 }
 
+.poster-event-page.inovel22-page {
+  --poster-background: #202020;
+  --poster-surface: #2c2b28;
+  --poster-hover: #3c382d;
+  --poster-ink: #faf9f6;
+  --poster-muted: #bcbab3;
+  --poster-accent: #efb54c;
+  --poster-secondary: #efb54c;
+  --poster-line: #aaa08c55;
+  background:
+    radial-gradient(ellipse at 85% 35%, #4d494043, transparent 54%),
+    linear-gradient(135deg, #282828, #191919);
+}
+
+.poster-event-page.inovel21-page {
+  --poster-background: #151615;
+  --poster-surface: #202622;
+  --poster-hover: #283b36;
+  --poster-ink: #fafaf5;
+  --poster-muted: #b2beb8;
+  --poster-accent: #f2b844;
+  --poster-secondary: #70d5d1;
+  --poster-line: #5c9f9959;
+  background:
+    linear-gradient(145deg, transparent 44%, #31473c33 44%, transparent 66%),
+    linear-gradient(33deg, #29423d33, transparent 48%),
+    #151615;
+}
+
 .poster-event-page ::selection {
   color: var(--poster-background);
   background: var(--poster-accent);
@@ -683,9 +712,46 @@
   }
 }
 
+/* The older landscape posters use white lettering and amber mottos. */
+.poster-event-page:is(.inovel22-page, .inovel21-page) .poster-event-number {
+  color: var(--poster-ink);
+}
+
+.poster-event-page.inovel22-page .poster-event-year-mark {
+  color: var(--poster-accent);
+}
+
+.poster-event-page:is(.inovel22-page, .inovel21-page) .poster-event-motto {
+  color: var(--poster-accent);
+}
+
+.poster-event-page:is(.inovel22-page, .inovel21-page) .poster-event-art {
+  position: relative;
+  max-width: 600px;
+}
+
+.poster-event-page.inovel22-page .poster-event-art > a {
+  border-color: #b9b2a655;
+  box-shadow: 0 22px 60px #00000055;
+}
+
+.poster-event-page.inovel21-page .poster-event-art::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 30%;
+  height: 30%;
+  border-top: 1px solid var(--poster-secondary);
+  border-right: 1px solid var(--poster-secondary);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
 @media (forced-colors: active) {
   .poster-event-page .poster-event-title .poster-event-word,
-  .poster-event-page .poster-event-title .poster-event-number {
+  .poster-event-page .poster-event-title .poster-event-number,
+  .poster-event-page .poster-event-title .poster-event-year-mark {
     color: CanvasText;
     background: none;
     -webkit-text-fill-color: CanvasText;

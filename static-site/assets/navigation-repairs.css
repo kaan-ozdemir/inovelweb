@@ -33,3 +33,25 @@ html body .modern-header{position:relative!important;top:auto!important;backgrou
 
 /* Home photo extends behind the transparent navigation. */
 html body.modern-home.direction-editorial:has(.zine-hero)>.modern-header{position:absolute!important;inset:0 0 auto!important;width:100%}
+
+/* Leave room for the menu button and keep navigation usable in landscape. */
+@media (max-width:950px){
+ .modern-header{--mobile-nav-height:84px}
+ .modern-header .modern-nav.navbar{gap:12px}
+ .modern-header .modern-brand{min-width:0;max-width:calc(100% - 100px);flex:0 1 auto}
+ .modern-header .modern-brand>span{min-width:0}
+ .modern-header .modern-brand small{white-space:normal}
+ .modern-header .modern-brand img,.modern-header .modern-menu-toggle{flex-shrink:0}
+ .modern-header .modern-menu{max-height:calc(100svh - var(--mobile-nav-height) - 16px);max-height:calc(100dvh - var(--mobile-nav-height) - 16px);padding-bottom:max(20px,env(safe-area-inset-bottom));scrollbar-gutter:stable}
+ .modern-header .modern-dropdown>div>a,.modern-header .modern-event-submenu>a{font-size:14px;overflow-wrap:anywhere}
+ .modern-header .modern-platform-link>small{font-size:11px}
+ .modern-footer .modern-brand{min-width:0;max-width:100%;white-space:normal}
+ .modern-footer .modern-brand>span{min-width:0}
+ .modern-footer .modern-brand img{flex-shrink:0}
+ .modern-footer .modern-footer-mail,.modern-footer .modern-footer-bottom a{display:inline-flex;align-items:center;min-height:44px;padding-block:10px}
+ .modern-footer .modern-footer-bottom{font-size:12px}
+ .modern-footer .modern-footer-bottom>div{gap:4px 20px}
+}
+@media (max-width:700px){
+ .modern-header{--mobile-nav-height:76px}
+}

@@ -3,6 +3,7 @@ const path = require('node:path');
 const root=path.resolve('static-site');
 const records=JSON.parse(fs.readFileSync('static-site/assets/events/catalog.json','utf8')).sort((a,b)=>Number(b.year)-Number(a.year));
 // --only=slug,slug regenerates event details without touching any archive or other page.
+// Add --include-listings to refresh only the selected categories and the full archive.
 const onlyArgument=process.argv.slice(2).find(argument=>argument.startsWith('--only='));
 const selectedSlugs=onlyArgument?new Set(onlyArgument.slice('--only='.length).split(',').filter(Boolean)):null;
 if(selectedSlugs&&(!selectedSlugs.size||[...selectedSlugs].some(slug=>!records.some(record=>record.slug===slug))))throw new Error('Unknown or empty event selection');
@@ -47,6 +48,7 @@ function speakerSection(record,prefix){
   const wrap=record.category==='kasis'?'kasis-wrap':'poster-event-wrap';
   const speakerItems=(record.speakers||[]).map(speaker=>`<li class="event-speaker"><h3 class="event-speaker-name">${esc(speaker.name)}</h3>${speaker.company?`<p class="event-speaker-company">${esc(speaker.company)}</p>`:''}${speaker.role?`<p class="event-speaker-role">${esc(speaker.role)}</p>`:''}</li>`);
   speakerItems.push(...(record.guestCompanies||[]).map(company=>`<li class="event-speaker event-speaker-guest"><h3 class="event-speaker-name">${esc(company)}</h3><p class="event-speaker-role">Konuk kurum</p></li>`));
+  speakerItems.push(...(record.workshops||[]).map(company=>`<li class="event-speaker event-speaker-workshop"><h3 class="event-speaker-name">${esc(company)}</h3><p class="event-speaker-role">Workshop</p></li>`));
   return `<section class="event-speakers ${wrap}" id="konusmacilar" aria-labelledby="event-speakers-title">
   <header class="event-speakers-heading">
     <p class="event-speakers-kicker">${esc(title)}</p>
@@ -157,6 +159,8 @@ function kasisFooter(prefix){
 const posterThemes={
   inovel25:{className:'inovel25-page',word:'İNOVEL',number:'25.',color:'#171113',brand:'İNOVEL25',motto:'Her şey senin için.<br>Çünkü sen buna değersin.'},
   inovel24:{className:'inovel24-page',word:'İNOVEL',number:'24.',color:'#031b2b',brand:'İNOVEL24',motto:'Her şey senin için.<br>Çünkü sen buna değersin.'},
+  'inovel-etkinlik-2022':{className:'inovel22-page',word:'İNOVEL',number:'<span class="poster-event-year-mark">’</span>22',color:'#202020',brand:'İNOVEL’22',motto:'Her şey senin için.<br>Çünkü sen buna değersin.'},
+  'inovel-etkinlik-2021':{className:'inovel21-page',word:'İNOVEL',number:'’21',color:'#151615',brand:'İNOVEL’21',motto:'Her şey senin için.<br>Çünkü sen buna değersin.'},
   'inovel-all-star':{className:'allstar-page',word:'İNOVEL',number:'ALL STAR',color:'#111315',brand:'İNOVEL ALL STAR',motto:'Her şey senin için.<br>Çünkü sen buna değersin.'},
   'gbs-etkinlik-6':{className:'gbs6-page',word:'GBS',number:'’6',color:'#04182f',brand:'GBS’6',motto:'GBS’nin altıncı buluşması.'}
 };
@@ -179,8 +183,7 @@ function posterEventContent(record,category,theme,prefix){
         <div><dt>Yer</dt><dd>${esc(record.venue||'Yer bilgisi paylaşılmadı')}</dd></div>
       </dl>
       <p class="poster-event-status">Bu etkinlik sona erdi.</p>
-      <div class="poster-event-links">
-        ${record.speakerPoster?'<a class="poster-event-link" href="#konusmacilar">Konuşmacılar <span aria-hidden="true">↓</span></a>':''}
+      <div class="poster-event-links">${record.speakerPoster?'\n        <a class="poster-event-link" href="#konusmacilar">Konuşmacılar <span aria-hidden="true">↓</span></a>':''}
         ${record.source?`<a class="poster-event-link" href="${esc(record.source)}" target="_blank" rel="noopener noreferrer">Özgün arşiv sayfası ${arrow}</a>`:''}
         <a class="poster-event-link" href="${prefix}${category.file}"><span aria-hidden="true">←</span> Diğer ${esc(record.label)} etkinlikleri</a>
       </div>
@@ -201,7 +204,8 @@ function posterEventFooter(category,theme,prefix){
   <a href="https://www.instagram.com/inoveldpu/" target="_blank" rel="noopener noreferrer">@inoveldpu ${arrow}</a>
 </footer>`;
 }
-for(const page of selectedSlugs?[]:pages){
+const listingPages=selectedSlugs?(process.argv.includes('--include-listings')?pages.filter(page=>page.category==='all'||records.some(record=>selectedSlugs.has(record.slug)&&record.category===page.category)):[]):pages;
+for(const page of listingPages){
  const filtered=records.filter(record=>page.category==='all'||record.category===page.category);
  const years=[...new Set(filtered.map(record=>record.year))];
  const feature=filtered[0];
@@ -245,4 +249,4 @@ for(const record of records.filter(record=>!selectedSlugs||selectedSlugs.has(rec
 }
 function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(entry=>entry.isDirectory()?walk(path.join(dir,entry.name)):[path.join(dir,entry.name)]);}
 if(!selectedSlugs)for(const file of walk(root).filter(file=>file.endsWith('.html'))){let html=fs.readFileSync(file,'utf8');const updated=html.replace(/(<div>)(<a href="([^"]*)portfolios\/inovel-etkinlik\/index.html">)/, '$1<a href="$3etkinlikler/index.html">Tüm etkinlikler</a>$2');if(!html.includes('>Tüm etkinlikler</a>')&&updated!==html)fs.writeFileSync(file,updated);}
-console.log(selectedSlugs?selectedSlugs.size+' selected event detail pages generated; all other pages preserved.':'Four listing pages and '+records.length+' event detail pages generated; shared navigation updated.');
+console.log(selectedSlugs?selectedSlugs.size+' selected event detail pages and '+listingPages.length+' related listings generated; all other pages preserved.':'Four listing pages and '+records.length+' event detail pages generated; shared navigation updated.');

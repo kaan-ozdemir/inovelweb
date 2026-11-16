@@ -42,7 +42,7 @@
   var stage=dialog.querySelector('.gallery-viewer-stage'),swipe=null;
   stage.addEventListener('touchstart',function(event){
    swipe=null;
-   if(!dialog.open||event.touches.length!==1||event.target.closest('button,a'))return;
+   if(!dialog.open||event.touches.length!==1||event.target.closest('button,a')||(window.visualViewport&&window.visualViewport.scale>1))return;
    swipe={x:event.touches[0].clientX,y:event.touches[0].clientY};
   },{passive:true});
   stage.addEventListener('touchmove',function(event){if(event.touches.length!==1)swipe=null;},{passive:true});
@@ -52,8 +52,10 @@
    if(!start||!dialog.open||event.touches.length||event.changedTouches.length!==1||photos.length<2)return;
    var dx=event.changedTouches[0].clientX-start.x,dy=event.changedTouches[0].clientY-start.y;
    if(Math.abs(dx)<50||Math.abs(dx)<Math.abs(dy)*1.4)return;
+   // A committed swipe must not also produce a backdrop click and close the viewer.
+   if(event.cancelable)event.preventDefault();
    show(position+(dx<0?1:-1));
-  },{passive:true});
+  },{passive:false});
   dialog.addEventListener('click',function(event){if(event.target===dialog||event.target===dialog.querySelector('.gallery-viewer-stage'))dialog.close();});
   dialog.addEventListener('close',function(){swipe=null;document.documentElement.classList.remove('gallery-viewer-open');image.removeAttribute('src');if(trigger&&trigger.isConnected)trigger.focus();});
   document.addEventListener('keydown',function(event){

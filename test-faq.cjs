@@ -8,10 +8,15 @@ const { JSDOM } = require('jsdom');
   const original = new JSDOM(fs.readFileSync('backups/faq-before-redesign.html','utf8'));
   const source = [...original.window.document.querySelectorAll('.vc_toggle')].map(el=>({question:el.querySelector('h4').textContent.trim().replace(/^\d+\.\s*/,''),answer:el.querySelector('.vc_toggle_content').textContent.trim()}));
   assert.equal(items.length,11);
+  // The membership answer was revised to match the club's current joining process.
+  const revisedAnswers = new Map([[
+    'İnovasyon ve liderlik topluluğuna nasıl üye olabilirim?',
+    'Oryantasyon haftasında İnovel standına uğrayarak ekiple tanışabilirsin. Ardından tanışma toplantısına, tanışma kahvaltısına ve mülakatlarımıza katılabilirsin. Sürecin tarih, saat ve yer bilgileri Instagram hesabımız @inoveldpu üzerinden duyurulur.'
+  ]]);
   for(const row of source) {
     const item=items.find(item=>item.querySelector('h3').textContent===row.question);
     assert.ok(item,'Original question is retained');
-    assert.equal(item.querySelector('.faq-answer p').textContent,row.answer,'Original answer is retained');
+    assert.equal(item.querySelector('.faq-answer p').textContent,revisedAnswers.get(row.question) || row.answer,'Answer matches the approved content');
   }
   original.window.close();
   assert.ok(items.every(item=>item.tagName==='DETAILS' && item.querySelector('summary')),'Native accordions work without scripts');
@@ -48,5 +53,5 @@ const { JSDOM } = require('jsdom');
   assert.equal(input.value,'','Category links clear a conflicting search');
   assert.equal(visible().length,11);
   dom.window.close();
-  console.log('FAQ: 11 original questions/answers, native accordions, expand/collapse, Turkish answer search, empty/reset and category navigation passed.');
+  console.log('FAQ: 11 questions and current answers, native accordions, expand/collapse, Turkish answer search, empty/reset and category navigation passed.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

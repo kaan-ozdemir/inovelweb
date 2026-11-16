@@ -89,8 +89,7 @@
       { "name": "Volkan BABAOĞLU", "company": "Xiaomi", "role": "Satış ve Pazarlama Yöneticisi" },
       { "name": "Umut OĞUZ", "role": "Oyuncu" },
       { "name": "Musa ÖZCAN", "company": "ASELSAN", "role": "Dijital Dönüşüm Yöneticisi" }
-    ],
-    "guestCompanies": ["Garanti BBVA"]
+    ]
   },
   {
     "slug": "inovel24",
@@ -138,7 +137,24 @@
     "imageWidth": 1080,
     "imageHeight": 1080,
     "eventDate": "8–9 Mayıs 2023",
-    "venue": "Hezar Dinari Kültür Merkezi"
+    "eventTime": "10.30",
+    "venue": "Hezar Dinari Kültür Merkezi",
+    "speakerPoster": {
+      "image": "assets/events/inovel-all-star-speakers.jpg",
+      "width": 1440,
+      "height": 1440
+    },
+    "speakers": [
+      { "name": "Burç SAN", "company": "Lenovo", "role": "General Manager" },
+      { "name": "İhsan Ceyhan SOLAK", "company": "SEM", "role": "General Manager" },
+      { "name": "Tolga DEDE", "company": "Onur", "role": "Founder" },
+      { "name": "Ümit YEŞİLTAŞ", "company": "Dell Technologies", "role": "Country Sales Manager" },
+      { "name": "Ümit AKALIN", "company": "Samsung", "role": "Senior Sales Manager" },
+      { "name": "Gürçin GÖKÇEBAĞ", "role": "Trainer-Speaker" },
+      { "name": "Nurgül ÇİLESİZ TÜRKER", "role": "Architect" },
+      { "name": "Ceyda GÜREL", "company": "ALP Havacılık", "role": "Human Resources Manager" },
+      { "name": "Ali ÖZEN", "company": "ALP Havacılık", "role": "Technology Development Manager" }
+    ]
   },
   {
     "slug": "inovel-etkinlik-2022",
@@ -149,7 +165,31 @@
     "year": "2022",
     "source": "https://inoveldpu.com/portfolio/inovel-etkinlik-2022/",
     "imageSource": "https://inoveldpu.com/wp-content/uploads/2023/12/inovell22.png",
-    "image": "assets/events/inovel-etkinlik-2022.png"
+    "image": "assets/events/inovel-etkinlik-2022.png",
+    "imageWidth": 600,
+    "imageHeight": 400,
+    "eventDate": "21–22 Mayıs 2022",
+    "eventTime": "10.30",
+    "venue": "Hezar Dinari Kültür Merkezi",
+    "speakerPoster": {
+      "image": "assets/events/inovel22-speakers.jpg",
+      "width": 1440,
+      "height": 1440
+    },
+    "speakers": [
+      { "name": "Raşit Emir SÜER", "company": "Paket Taxi", "role": "Founder" },
+      { "name": "Ümit YEŞİLTAŞ", "company": "Dell Technologies", "role": "Country Sales Manager" },
+      { "name": "Adnan KILIÇ", "company": "ASELSAN", "role": "System Security Engineer" },
+      { "name": "Hakkı ORHUN", "company": "MediaMarkt", "role": "Turkey Category Director" },
+      { "name": "Yılmaz BOZAN", "company": "revolutionDM", "role": "CEO & Founder" },
+      { "name": "Mertcan GÜL", "company": "university4society", "role": "Founder" },
+      { "name": "M. Can AKBAŞ", "company": "Huawei", "role": "Chief Technical Advisor" },
+      { "name": "Emir ŞAMUR", "role": "Sanatçı" },
+      { "name": "Mehmet DİNDAR", "company": "taklitmanTV" },
+      { "name": "Mehmet KILINÇ", "role": "Sanatçı" },
+      { "name": "Sinan DAĞYAR", "company": "Wimbledon Language Academy", "role": "Founder" },
+      { "name": "Burak KOÇAK", "company": "Wimbledon Language Academy", "role": "Founder" }
+    ]
   },
   {
     "slug": "inovel-etkinlik-2021",
@@ -160,7 +200,29 @@
     "year": "2021",
     "source": "https://inoveldpu.com/portfolio/inovel-etkinlik-2021/",
     "imageSource": "https://inoveldpu.com/wp-content/uploads/2023/12/invv21.png",
-    "image": "assets/events/inovel-etkinlik-2021.png"
+    "image": "assets/events/inovel21-poster.jpg",
+    "imageAlt": "İnovel’21 etkinlik afişi: 20–21 Mart 2021, saat 12.00, YouTube canlı yayını",
+    "imageWidth": 1440,
+    "imageHeight": 1440,
+    "eventDate": "20–21 Mart 2021",
+    "eventTime": "12.00",
+    "venue": "YouTube canlı yayını",
+    "speakerPoster": {
+      "image": "assets/events/inovel21-speakers.jpg",
+      "width": 1080,
+      "height": 1080
+    },
+    "speakers": [
+      { "name": "Ali Erkan SÖKMEN", "company": "Mondelēz International", "role": "Procurement Operations Lead, EE East Europe" },
+      { "name": "Yılmaz BOZAN", "company": "revolutionDM", "role": "CEO" },
+      { "name": "Mertol KURTOĞLU", "company": "ETİ", "role": "Sales Group Manager" },
+      { "name": "Gökhan ÖRÜN", "company": "hadi", "role": "Co-Founder & CTO" },
+      { "name": "Yeliz TURUNÇ", "company": "Microsoft", "role": "Modern Workplace Global Blackbelt / Driving Frontline Worker Digitization" },
+      { "name": "Ömer Barış GÖKPINAR", "company": "Samsung", "role": "Chief Marketing Officer" },
+      { "name": "Ebru GÜVEN", "company": "Blockchain Women İstanbul", "role": "Co-Founder and Chairwoman" },
+      { "name": "Doğan BOZDAĞ", "company": "Mirsan", "role": "International Sales & Marketing" },
+      { "name": "Güven Orkun TANIK", "company": "Türk Havacılık Uzay Sanayii", "role": "Artificial Intelligence & Machine Learning Manager" }
+    ]
   },
   {
     "slug": "gbs-etkinlik-6",

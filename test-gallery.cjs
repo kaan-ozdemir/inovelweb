@@ -32,18 +32,26 @@ const wait=()=>new Promise(resolve=>setTimeout(resolve,10));
  d.querySelector('.gallery-next').click();assert.equal(image.src,links[1].href);
  const stage=d.querySelector('.gallery-viewer-stage');
  function touch(type,x,y,multiple){
-  const event=new dom.window.Event(type,{bubbles:true});
+  const event=new dom.window.Event(type,{bubbles:true,cancelable:true});
   const point={clientX:x,clientY:y};
   Object.defineProperty(event,'touches',{value:type==='touchend'?[]:multiple?[point,point]:[point]});
   Object.defineProperty(event,'changedTouches',{value:[point]});
   image.dispatchEvent(event);
+  return event;
  }
- touch('touchstart',200,100);touch('touchend',100,105);assert.equal(image.src,links[2].href,'Left swipe advances');
+ touch('touchstart',200,100);const swipeEnd=touch('touchend',100,105);assert.equal(image.src,links[2].href,'Left swipe advances');
+ assert.equal(swipeEnd.defaultPrevented,true,'A committed swipe suppresses the synthetic click');
  touch('touchstart',100,100);touch('touchend',200,105);assert.equal(image.src,links[1].href,'Right swipe goes back');
  touch('touchstart',200,100);touch('touchend',190,105);assert.equal(image.src,links[1].href,'Short gesture ignored');
- touch('touchstart',200,100);touch('touchend',130,250);assert.equal(image.src,links[1].href,'Vertical gesture ignored');
+ touch('touchstart',200,100);const verticalEnd=touch('touchend',130,250);assert.equal(image.src,links[1].href,'Vertical gesture ignored');
+ assert.equal(verticalEnd.defaultPrevented,false,'Vertical gestures retain native behavior');
  touch('touchstart',200,100);touch('touchmove',180,100,true);touch('touchend',100,100);assert.equal(image.src,links[1].href,'Pinch gesture ignored');
  touch('touchstart',200,100);touch('touchcancel',150,100);touch('touchend',100,100);assert.equal(image.src,links[1].href,'Cancelled gesture ignored');
+ Object.defineProperty(dom.window,'visualViewport',{value:{scale:2},configurable:true});
+ touch('touchstart',200,100);const zoomEnd=touch('touchend',100,105);
+ assert.equal(image.src,links[1].href,'Panning a zoomed page does not advance photos');
+ assert.equal(zoomEnd.defaultPrevented,false,'Zoomed page gestures retain native behavior');
+ dom.window.visualViewport.scale=1;
  function key(value){d.dispatchEvent(new dom.window.KeyboardEvent('keydown',{key:value,bubbles:true,cancelable:true}));}
  key('ArrowLeft');assert.equal(image.src,links[0].href);
  key('ArrowLeft');assert.equal(image.src,links[links.length-1].href,'Previous wraps around');

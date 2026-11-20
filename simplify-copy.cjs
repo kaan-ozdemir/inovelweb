@@ -15,7 +15,7 @@ const replacements = [
  ['Kampüste, yolda, molada.<br>Sohbetimize ortak ol.', 'Podcast bölümlerini<br>buradan dinleyebilirsin.'],
  ['Kariyer, gelişim, inovasyon.<br>Birlikte düşünmeye devam.', 'Kariyer ve inovasyon üzerine<br>yazılarımızı okuyabilirsin.'],
  ['BİR FİKRİN<br>VARSA,<br><span>YERİN VAR.</span>', 'EKİBE<br><span>KATIL.</span>'],
- ['İletişim, tasarım, sponsorluk, marka, akademi… Kendine bir alan bul. Birlikte neler yapabileceğimizi keşfet.', 'Beş departmanda çalışıyoruz. Görevleri inceleyip ilgilendiğin alan için bize yazabilirsin.'],
+ ['İletişim, tasarım, sponsorluk, marka, akademi… Kendine bir alan bul. Birlikte neler yapabileceğimizi keşfet.', 'Oryantasyon haftasında standımıza uğra. Tanışma toplantısına ve tanışma kahvaltısına gel, ardından mülakatlarımıza katıl. Tarih, saat ve yer bilgilerini Instagram’da duyuruyoruz.'],
  ['BİZE MERHABA DE', 'BİZE YAZ'],
  ['Merakla başlar. Birlikte büyür.', 'İnovasyon ve Liderlik Topluluğu'],
  ['2012’den beri fikirleri buluşturuyor,<br>geleceğe birlikte hazırlanıyoruz.', '2012’den beri DPÜ’de<br>etkinlikler düzenliyoruz.'],

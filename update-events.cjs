@@ -45,7 +45,7 @@ function speakerSection(record,prefix){
   const title=detailTitle(record);
   const poster=record.speakerPoster;
   const posterLink=prefix+poster.image;
-  const wrap=record.category==='kasis'?'kasis-wrap':'poster-event-wrap';
+  const wrap=record.category==='kasis'?'kasis-wrap':record.slug==='inovel26'?'inovel26-wrap':'poster-event-wrap';
   const speakerItems=(record.speakers||[]).map(speaker=>`<li class="event-speaker"><h3 class="event-speaker-name">${esc(speaker.name)}</h3>${speaker.company?`<p class="event-speaker-company">${esc(speaker.company)}</p>`:''}${speaker.role?`<p class="event-speaker-role">${esc(speaker.role)}</p>`:''}</li>`);
   speakerItems.push(...(record.guestCompanies||[]).map(company=>`<li class="event-speaker event-speaker-guest"><h3 class="event-speaker-name">${esc(company)}</h3><p class="event-speaker-role">Konuk kurum</p></li>`));
   speakerItems.push(...(record.workshops||[]).map(company=>`<li class="event-speaker event-speaker-workshop"><h3 class="event-speaker-name">${esc(company)}</h3><p class="event-speaker-role">Workshop</p></li>`));
@@ -96,6 +96,7 @@ function inovel26Content(record,prefix){
         <div><dt>Yer</dt><dd>${esc(record.venue)}</dd></div>
       </dl>
       <p class="inovel26-status">Bu etkinlik sona erdi.</p>
+      ${record.speakerPoster?'<p><a class="inovel26-back" href="#konusmacilar">Konuşmacılar <span aria-hidden="true">↓</span></a></p>':''}
       <a class="inovel26-back" href="${prefix}portfolios/inovel-etkinlik/index.html"><span aria-hidden="true">←</span> Diğer İnovel etkinlikleri</a>
     </div>
     <figure class="inovel26-poster">
@@ -215,7 +216,7 @@ for(const record of records.filter(record=>!selectedSlugs||selectedSlugs.has(rec
  const file=`etkinlikler/${record.slug}/index.html`;
  const category=pages.find(page=>page.category===record.category);
  if(record.slug==='inovel26'){
-   save(file,layout(file,record.title,prefix=>inovel26Content(record,prefix),{
+   save(file,layout(file,record.title,prefix=>inovel26Content(record,prefix)+speakerSection(record,prefix),{
      themeClass:'inovel26-page',
      archiveScript:false,
      themeColor:'#101723',

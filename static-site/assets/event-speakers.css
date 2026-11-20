@@ -1,21 +1,21 @@
 /* Speaker posters retain the colors of the event page that contains them. */
-:is(.kasis-page, .poster-event-page) .event-speakers {
+:is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers {
   padding-block: 44px 80px;
   border-top: 1px solid var(--inovel-line);
 }
 
-:is(.kasis-page, .poster-event-page) .event-speakers-heading {
+:is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-heading {
   margin-bottom: 32px;
 }
 
-:is(.kasis-page, .poster-event-page) .event-speakers-kicker {
+:is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-kicker {
   margin: 0 0 12px;
   color: var(--inovel-red);
   font: 600 10px/1.7 var(--inovel-font);
   letter-spacing: 1.8px;
 }
 
-:is(.kasis-page, .poster-event-page) .event-speakers-heading h2 {
+:is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-heading h2 {
   margin: 0;
   color: var(--inovel-ink);
   font: 500 clamp(32px, 3.6vw, 48px)/1.15 var(--inovel-font);
@@ -23,27 +23,27 @@
   text-transform: none;
 }
 
-:is(.kasis-page, .poster-event-page) .event-speakers-layout {
+:is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   align-items: start;
   gap: clamp(32px, 5vw, 72px);
 }
 
-:is(.kasis-page, .poster-event-page) .event-speakers-poster {
+:is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-poster {
   min-width: 0;
   width: 100%;
   margin: 0;
 }
 
-:is(.kasis-page, .poster-event-page) .event-speakers-poster > a {
+:is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-poster > a {
   display: block;
   padding: 0;
   border: 1px solid var(--inovel-line);
   background: var(--inovel-surface);
 }
 
-:is(.kasis-page, .poster-event-page) .event-speakers-poster img {
+:is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-poster img {
   display: block;
   width: 100%;
   height: auto;
@@ -51,11 +51,11 @@
   object-fit: contain;
 }
 
-:is(.kasis-page, .poster-event-page) .event-speakers-poster figcaption {
+:is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-poster figcaption {
   margin-top: 10px;
 }
 
-:is(.kasis-page, .poster-event-page) .event-speakers-poster figcaption a {
+:is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-poster figcaption a {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -66,11 +66,11 @@
   font: 500 11px/1.6 var(--inovel-font);
 }
 
-:is(.kasis-page, .poster-event-page) .event-speakers-poster figcaption a:hover {
+:is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-poster figcaption a:hover {
   color: var(--inovel-red);
 }
 
-:is(.kasis-page, .poster-event-page) .event-speakers-list {
+:is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-list {
   display: grid;
   min-width: 0;
   margin: 0;
@@ -79,7 +79,7 @@
   border-top: 1px solid var(--inovel-line);
 }
 
-:is(.kasis-page, .poster-event-page) .event-speaker {
+:is(.kasis-page, .poster-event-page, .inovel26-page) .event-speaker {
   min-width: 0;
   margin: 0;
   padding: 19px 0 21px;
@@ -87,7 +87,7 @@
   overflow-wrap: anywhere;
 }
 
-:is(.kasis-page, .poster-event-page) .event-speaker-name {
+:is(.kasis-page, .poster-event-page, .inovel26-page) .event-speaker-name {
   margin: 0;
   color: var(--inovel-ink);
   font: 600 clamp(17px, 1.5vw, 21px)/1.4 var(--inovel-font);
@@ -95,61 +95,61 @@
   text-transform: none;
 }
 
-:is(.kasis-page, .poster-event-page) .event-speaker-company {
+:is(.kasis-page, .poster-event-page, .inovel26-page) .event-speaker-company {
   margin: 7px 0 0;
   color: var(--inovel-red);
   font: 600 12px/1.6 var(--inovel-font);
 }
 
-:is(.kasis-page, .poster-event-page) .event-speaker-role {
+:is(.kasis-page, .poster-event-page, .inovel26-page) .event-speaker-role {
   margin: 4px 0 0;
   color: var(--inovel-muted);
   font: 400 12px/1.75 var(--inovel-font);
 }
 
 @media (max-width: 1100px) {
-  :is(.kasis-page, .poster-event-page) .event-speakers-layout {
+  :is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-layout {
     gap: 32px;
   }
 }
 
 @media (max-width: 760px) {
-  :is(.kasis-page, .poster-event-page) .event-speakers {
+  :is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers {
     padding-block: 32px 48px;
   }
 
-  :is(.kasis-page, .poster-event-page) .event-speakers-heading {
+  :is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-heading {
     margin-bottom: 24px;
   }
 
-  :is(.kasis-page, .poster-event-page) .event-speakers-heading h2 {
+  :is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-heading h2 {
     letter-spacing: -0.7px;
   }
 
-  :is(.kasis-page, .poster-event-page) .event-speakers-layout {
+  :is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-layout {
     grid-template-columns: minmax(0, 1fr);
     gap: 24px;
   }
 
-  :is(.kasis-page, .poster-event-page) .event-speakers-poster {
+  :is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-poster {
     max-width: 640px;
     justify-self: center;
   }
 
-  :is(.kasis-page, .poster-event-page) .event-speaker {
+  :is(.kasis-page, .poster-event-page, .inovel26-page) .event-speaker {
     padding-block: 17px 19px;
   }
 }
 
 @media (forced-colors: active) {
-  :is(.kasis-page, .poster-event-page) .event-speakers,
-  :is(.kasis-page, .poster-event-page) .event-speakers-list,
-  :is(.kasis-page, .poster-event-page) .event-speaker,
-  :is(.kasis-page, .poster-event-page) .event-speakers-poster > a {
+  :is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers,
+  :is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-list,
+  :is(.kasis-page, .poster-event-page, .inovel26-page) .event-speaker,
+  :is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-poster > a {
     border-color: CanvasText;
   }
 
-  :is(.kasis-page, .poster-event-page) .event-speakers-poster figcaption a {
+  :is(.kasis-page, .poster-event-page, .inovel26-page) .event-speakers-poster figcaption a {
     color: LinkText;
   }
 }

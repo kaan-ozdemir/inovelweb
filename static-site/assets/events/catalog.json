@@ -13,7 +13,24 @@
     "imageHeight": 1350,
     "eventDate": "9–10 Mayıs 2026",
     "eventTime": "10.00",
-    "venue": "İİBF Konferans Salonu"
+    "venue": "İİBF Konferans Salonu",
+    "speakerPoster": {
+      "image": "assets/events/inovel26-speakers.png",
+      "width": 1748,
+      "height": 2480
+    },
+    "speakers": [
+      { "name": "Ahmet ÖZRENK", "company": "Cevizsoft Teknoloji A.Ş.", "role": "Kurucu Ortağı" },
+      { "name": "Alp Eren GÖKTÜRK", "company": "Eczacıbaşı", "role": "Girişimcilik Projeleri Müdürü" },
+      { "name": "Taner IŞILDAK", "company": "KonsolOyun", "role": "İçerik Üreticisi" },
+      { "name": "Cem KURT", "company": "Watsons", "role": "Satış Operasyonları ve Müşteri Deneyimi Grup Müdürü" },
+      { "name": "Cüneyt ÖZÇELEBİ", "company": "Siemens A.Ş.", "role": "Teklif Yöneticisi" },
+      { "name": "Hasan DENLİ", "company": "obilet", "role": "Yazılım Geliştirme Müdürü" },
+      { "name": "Baki GÜL", "company": "Huawei", "role": "Kıdemli Yazılım Mühendisi" },
+      { "name": "Kartal GÖKBERK", "role": "İçerik Üreticisi" },
+      { "name": "Musab YEGİN", "company": "Trendyol Group", "role": "Kıdemli Ürün Yöneticisi" },
+      { "name": "Funda AYTUN", "company": "LAV", "role": "Planlama ve Satın Alma Direktörü" }
+    ]
   },
   {
     "slug": "kasis-2025",
@@ -28,7 +45,20 @@
     "imageWidth": 760,
     "imageHeight": 938,
     "venue": "DPÜ · İİBF Konferans Salonu",
-    "description": "19 Aralık 2025’te KASİS’te sektör temsilcileri ve ilham veren konuşmacılarla bir araya geldik. Kariyer engellerini aşmak ve geleceğe birlikte bakmak üzerine konuştuk."
+    "description": "19 Aralık 2025’te KASİS’te sektör temsilcileri ve ilham veren konuşmacılarla bir araya geldik. Kariyer engellerini aşmak ve geleceğe birlikte bakmak üzerine konuştuk.",
+    "speakerPoster": {
+      "image": "assets/events/kasis-3-speakers.png",
+      "width": 1748,
+      "height": 2480
+    },
+    "speakers": [
+      { "name": "Ümran AY", "company": "Anadolu Isuzu", "role": "Tesisat Tadilat ve Üretim Merkezi Takım Lideri" },
+      { "name": "Fatih ÇETİNKAYA", "company": "Turkcell", "role": "Güney Marmara Bölge Müdürü" },
+      { "name": "Hamit KOCAMAN", "company": "Turkcell", "role": "Güney Marmara Satış Yöneticisi" },
+      { "name": "Gökhan HAYTA", "role": "Tasarımcı & Influencer" },
+      { "name": "Berkant CEN", "company": "BtcTurk | Teknoloji", "role": "Front & Developer" },
+      { "name": "Batuhan YILMAZ", "role": "Sihirbaz & Sanatçı" }
+    ]
   },
   {
     "slug": "kasis-2",

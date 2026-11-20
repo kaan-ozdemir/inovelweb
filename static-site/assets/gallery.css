@@ -40,7 +40,10 @@
 .gallery-invite>.zine-wrap>div:last-child{max-width:340px;justify-self:end}
 .gallery-invite p:not(.zine-section-tag){font-size:13px;line-height:1.9;color:#625f58;margin-bottom:24px}
 .gallery-invite .zine-inline-link{display:flex;width:fit-content;margin-top:25px}
-.gallery-invite .zine-button:hover{background:#141414;border-color:#141414;color:#f2f0e9!important}
+.gallery-archives{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.gallery-archives>a{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:48px;padding:12px;border:1px solid #9e9b94;color:#141414;font-size:11px;font-weight:750;line-height:1.5}
+.gallery-archives>a>span:last-child{font-size:22px;font-weight:400;line-height:1}
+.gallery-archives>a:hover{background:#141414;border-color:#141414;color:#f2f0e9}
 .gallery-invite a:focus-visible{outline-color:#141414}
 html.gallery-viewer-open{overflow:hidden;scrollbar-gutter:stable}
 .gallery-viewer{position:fixed;inset:0;max-width:none;max-height:none;width:100%;height:100vh;height:100dvh;padding:max(24px,env(safe-area-inset-top)) max(32px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(32px,env(safe-area-inset-left));margin:0;border:0;background:#101010fa;color:#f2f0e9;font-family:var(--inovel-font);box-sizing:border-box;overscroll-behavior:contain}

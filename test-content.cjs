@@ -27,8 +27,10 @@ const catalog=JSON.parse(fs.readFileSync('static-site/assets/content/catalog.jso
    const reader=new JSDOM(fs.readFileSync(path.join('static-site',record.file),'utf8'));
    const object=reader.window.document.querySelector('object');
    if(record.available){
-    assert.ok(object);
-    assert.ok(object.getAttribute('data').endsWith(record.pdf));
+    assert.equal(object,null,'PDF stays unloaded until the reader is requested');
+    const deferred=reader.window.document.querySelector('template[data-reader-template]')?.content.querySelector('object');
+    assert.ok(deferred,'An inline reader remains available on request');
+    assert.ok(deferred.getAttribute('data').endsWith(record.pdf));
     const pdf=fs.readFileSync(path.join('static-site',record.pdf));
     assert.equal(pdf.toString('ascii',0,5),'%PDF-');
     assert.ok(reader.window.document.querySelector('a[download]'));

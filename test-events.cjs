@@ -22,7 +22,7 @@ const catalog=JSON.parse(fs.readFileSync('static-site/assets/events/catalog.json
    const expectedTitle=record.category==='kasis'?'KASİS '+record.edition:record.title;
    assert.equal(heading.getAttribute('aria-label')||heading.textContent,expectedTitle);
    assert.doesNotMatch(detail.window.document.querySelector('meta[name="description"]').content,/\b(?:undefined|null)\b/,'Page descriptions omit unavailable event information');
-   const speakerCounts={kasis:5,'kasis-2':6,inovel25:9,inovel24:10,'inovel-etkinlik-2021':9,'inovel-etkinlik-2022':12,'inovel-all-star':9};
+   const speakerCounts={kasis:5,'kasis-2':6,'kasis-2025':6,inovel26:10,inovel25:9,inovel24:10,'inovel-etkinlik-2021':9,'inovel-etkinlik-2022':12,'inovel-all-star':9};
    if(Object.hasOwn(speakerCounts,record.slug)){
      const eventDocument=detail.window.document;
      const section=eventDocument.querySelector('#konusmacilar');
@@ -36,12 +36,24 @@ const catalog=JSON.parse(fs.readFileSync('static-site/assets/events/catalog.json
      assert.ok(fs.existsSync(posterPath),'Speaker poster resolves locally');
      assert.equal(speakerPoster.closest('a').getAttribute('href'),speakerPoster.getAttribute('src'),'Full-size speaker poster opens from the preview');
      assert.equal(speakerPoster.getAttribute('loading'),'lazy');
-     assert.equal(speakerPoster.getAttribute('width'),['kasis','inovel-etkinlik-2021'].includes(record.slug)?'1080':'1440');
-     assert.equal(speakerPoster.getAttribute('height'),speakerPoster.getAttribute('width'));
+     assert.equal(speakerPoster.getAttribute('width'),String(record.speakerPoster.width),'Speaker poster width matches its metadata');
+     assert.equal(speakerPoster.getAttribute('height'),String(record.speakerPoster.height),'Speaker poster height matches its metadata');
+     if(['kasis-2025','inovel26'].includes(record.slug)){
+       const posterBytes=fs.readFileSync(posterPath);
+       assert.deepEqual(posterBytes.subarray(0,8),Buffer.from([137,80,78,71,13,10,26,10]),'New speaker posters are local PNG images');
+       assert.equal(posterBytes.readUInt32BE(16),record.speakerPoster.width,'Actual PNG width matches the speaker poster metadata');
+       assert.equal(posterBytes.readUInt32BE(20),record.speakerPoster.height,'Actual PNG height matches the speaker poster metadata');
+     }
      const speakers=[...section.querySelectorAll('.event-speaker:not(.event-speaker-guest):not(.event-speaker-workshop)')];
      assert.equal(speakers.length,speakerCounts[record.slug]);
      assert.deepEqual(speakers.map(speaker=>speaker.querySelector('h3').textContent),record.speakers.map(speaker=>speaker.name),'Names remain readable without JavaScript');
      speakers.forEach((speaker,index)=>{
+       const company=speaker.querySelector('.event-speaker-company');
+       if(record.speakers[index].company){
+         assert.equal(company.textContent,record.speakers[index].company,'Speaker companies remain readable without JavaScript');
+       }else{
+         assert.equal(company,null,'A company is only displayed when supplied');
+       }
        const role=speaker.querySelector('.event-speaker-role');
        if(record.speakers[index].role){
          assert.equal(role.textContent,record.speakers[index].role);
@@ -230,5 +242,5 @@ const catalog=JSON.parse(fs.readFileSync('static-site/assets/events/catalog.json
  d.querySelector('.events-reset').click();assert.equal(visible().length,11);assert.equal(year.value,'all');assert.equal(d.activeElement,input);
  assert.equal(d.querySelectorAll('.modern-event-group').length,1,'Event menu is not duplicated');
  dom.window.close();
- console.log('Events: 11 records/details, 7 speaker posters and 60 named speakers, confirmed 2021/2022/All Star event facts, KASIS 1/2/3 facts, 6 poster themes, 3 general categories, no-JS content, search and year filters passed.');
+ console.log('Events: 11 records/details, 9 speaker posters and 76 named speakers, local PNG dimensions, readable speaker companies/roles, confirmed 2021/2022/All Star event facts, KASIS 1/2/3 facts, 6 poster themes, 3 general categories, no-JS content, search and year filters passed.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

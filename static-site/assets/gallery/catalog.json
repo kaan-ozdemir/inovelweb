@@ -146,11 +146,11 @@
   {
     "index": 12,
     "original": "../assets/gallery/salonda-birlikte.jpg",
-    "full": "../assets/gallery/salonda-birlikte.jpg",
+    "full": "../assets/about-community.jpg",
     "src": "../assets/gallery/previews/photo-12.jpg",
     "srcset": "",
-    "width": 640,
-    "height": 426,
+    "width": 1705,
+    "height": 1136,
     "title": "Salonda birlikte",
     "alt": "Konferans salonunda toplu fotoğraf için bir araya gelen İnovel ekibi",
     "category": "sahne"
@@ -183,36 +183,39 @@
     "index": 15,
     "original": "../assets/gallery/15-yil-toplu.jpg",
     "full": "../assets/gallery/15-yil-toplu.jpg",
-    "src": "../assets/gallery/15-yil-toplu.jpg",
+    "src": "../assets/gallery/previews/photo-15.jpg",
     "srcset": "",
     "width": 4032,
     "height": 2268,
     "title": "15. Yıl Buluşması · 7 Kasım 2026",
     "alt": "7 Kasım 2026 tarihli İnovel 15. Yıl Buluşması toplu fotoğrafı",
-    "category": "topluluk"
+    "category": "topluluk",
+    "album": "15-yil"
   },
   {
     "index": 16,
     "original": "../assets/gallery/15-yil-ekip.jpg",
     "full": "../assets/gallery/15-yil-ekip.jpg",
-    "src": "../assets/gallery/15-yil-ekip.jpg",
+    "src": "../assets/gallery/previews/photo-16.jpg",
     "srcset": "",
     "width": 5712,
     "height": 3213,
     "title": "15. Yıl Buluşması · Ekip · 7 Kasım 2026",
     "alt": "7 Kasım 2026 tarihli 15. Yıl Buluşması’nda bir araya gelen İnovel ekibi",
-    "category": "topluluk"
+    "category": "topluluk",
+    "album": "15-yil"
   },
   {
     "index": 17,
     "original": "../assets/gallery/15-yil-bulusma.jpg",
     "full": "../assets/gallery/15-yil-bulusma.jpg",
-    "src": "../assets/gallery/15-yil-bulusma.jpg",
+    "src": "../assets/gallery/previews/photo-17.jpg",
     "srcset": "",
     "width": 3024,
     "height": 4032,
     "title": "15. Yıl Buluşması · 7 Kasım 2026",
     "alt": "7 Kasım 2026 tarihli İnovel 15. Yıl Buluşması’ndan bir kare",
-    "category": "topluluk"
+    "category": "topluluk",
+    "album": "15-yil"
   }
 ]
